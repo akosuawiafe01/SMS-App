@@ -79,10 +79,22 @@
     <Compile Include="frmCourse.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGrade.Designer.vb">
-      <DependentUpon>frmGrade.vb</DependentUpon>
+    <Compile Include="frmHall.Designer.vb">
+      <DependentUpon>frmHall.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmGrade.vb">
+    <Compile Include="frmHall.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTranscript.Designer.vb">
+      <DependentUpon>frmTranscript.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTranscript.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmStudent.Designer.vb">
@@ -101,6 +113,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -112,10 +125,56 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="rptCourses.Designer.vb">
+      <DependentUpon>rptCourses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="rptCourses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptHall.Designer.vb">
+      <DependentUpon>rptHall.vb</DependentUpon>
+    </Compile>
+    <Compile Include="rptHall.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptLecturers.Designer.vb">
+      <DependentUpon>rptLecturers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="rptLecturers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptStudent.Designer.vb">
+      <DependentUpon>rptStudent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="rptStudent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_SMS_DbDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_SMS_DbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_SMS_DbDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_SMS_DbDataSet1.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmCourse.resx">
       <DependentUpon>frmCourse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHall.resx">
+      <DependentUpon>frmHall.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStudent.resx">
+      <DependentUpon>frmStudent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTranscript.resx">
+      <DependentUpon>frmTranscript.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IndexForm.resx">
       <DependentUpon>IndexForm.vb</DependentUpon>
@@ -125,6 +184,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCourses.resx">
+      <DependentUpon>rptCourses.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +200,31 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="_SMS_DbDataSet.xsc">
+      <DependentUpon>_SMS_DbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_SMS_DbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_SMS_DbDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_SMS_DbDataSet.xss">
+      <DependentUpon>_SMS_DbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_SMS_DbDataSet1.xsc">
+      <DependentUpon>_SMS_DbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_SMS_DbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_SMS_DbDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_SMS_DbDataSet1.xss">
+      <DependentUpon>_SMS_DbDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neural Networks.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
