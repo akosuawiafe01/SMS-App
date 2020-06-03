@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmTranscript
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,8 @@ Partial Class frmTranscript
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtpTransDate = New System.Windows.Forms.GroupBox()
         Me.txtTransHall = New System.Windows.Forms.TextBox()
@@ -49,17 +48,13 @@ Partial Class frmTranscript
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.btnPrintTranscript = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me._SMS_DbDataSet = New SMS_App._SMS_DbDataSet()
-        Me.SMSDbDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dtpTransDate.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._SMS_DbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SMSDbDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -298,6 +293,14 @@ Partial Class frmTranscript
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Results"
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(30, 32)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(718, 179)
+        Me.DataGridView1.TabIndex = 0
+        '
         'DateTimePicker1
         '
         Me.DateTimePicker1.Location = New System.Drawing.Point(726, 50)
@@ -313,26 +316,6 @@ Partial Class frmTranscript
         Me.btnPrintTranscript.TabIndex = 19
         Me.btnPrintTranscript.Text = "Print"
         Me.btnPrintTranscript.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.DataSource = Me._SMS_DbDataSet
-        Me.DataGridView1.Location = New System.Drawing.Point(30, 32)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(718, 179)
-        Me.DataGridView1.TabIndex = 0
-        '
-        '_SMS_DbDataSet
-        '
-        Me._SMS_DbDataSet.DataSetName = "_SMS_DbDataSet"
-        Me._SMS_DbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'SMSDbDataSetBindingSource
-        '
-        Me.SMSDbDataSetBindingSource.DataSource = Me._SMS_DbDataSet
-        Me.SMSDbDataSetBindingSource.Position = 0
         '
         'frmTranscript
         '
@@ -354,8 +337,6 @@ Partial Class frmTranscript
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._SMS_DbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SMSDbDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -389,6 +370,4 @@ Partial Class frmTranscript
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents btnPrintTranscript As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents _SMS_DbDataSet As _SMS_DbDataSet
-    Friend WithEvents SMSDbDataSetBindingSource As BindingSource
 End Class
