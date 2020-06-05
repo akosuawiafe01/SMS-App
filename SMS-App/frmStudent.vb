@@ -53,8 +53,8 @@
         txtHomeLang.Clear()
         txtPostalAddress.Clear()
         txtProgramme.Clear()
-        txtStudID.Clear()
-        txtStudPin.Clear()
+        TextBox1.Clear()
+        TextBox2.Clear()
 
     End Sub
 

@@ -2913,7 +2913,7 @@ Partial Public Class SMS_DataSet
             Me.columnhomeLanguage.AllowDBNull = false
             Me.columnhomeLanguage.MaxLength = 20
             Me.columnprogramme.AllowDBNull = false
-            Me.columnprogramme.MaxLength = 50
+            Me.columnprogramme.MaxLength = 500
             Me.columncitizenship.MaxLength = 30
             Me.columnDOB.AllowDBNull = false
             Me.columnacademicLevel.MaxLength = 10

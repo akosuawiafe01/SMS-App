@@ -134,7 +134,7 @@ Partial Class frmStudent
         'cmbMaritalStatus
         '
         Me.cmbMaritalStatus.FormattingEnabled = True
-        Me.cmbMaritalStatus.Items.AddRange(New Object() {"Male", "Female"})
+        Me.cmbMaritalStatus.Items.AddRange(New Object() {"Single ", "Married"})
         Me.cmbMaritalStatus.Location = New System.Drawing.Point(152, 262)
         Me.cmbMaritalStatus.Name = "cmbMaritalStatus"
         Me.cmbMaritalStatus.Size = New System.Drawing.Size(144, 21)
@@ -143,7 +143,7 @@ Partial Class frmStudent
         'cmbGender
         '
         Me.cmbGender.FormattingEnabled = True
-        Me.cmbGender.Items.AddRange(New Object() {"Single", "Married"})
+        Me.cmbGender.Items.AddRange(New Object() {"Male ", "Female"})
         Me.cmbGender.Location = New System.Drawing.Point(152, 157)
         Me.cmbGender.Name = "cmbGender"
         Me.cmbGender.Size = New System.Drawing.Size(144, 21)
