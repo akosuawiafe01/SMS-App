@@ -34,12 +34,13 @@ Partial Class IndexForm
         Me.LecturersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CoursesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MiscalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StudentToolStripMenuItem, Me.GradeToolStripMenuItem, Me.ReportToolStripMenuItem, Me.LoginToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StudentToolStripMenuItem, Me.GradeToolStripMenuItem, Me.ReportToolStripMenuItem, Me.LoginToolStripMenuItem, Me.MiscalToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
@@ -114,6 +115,12 @@ Partial Class IndexForm
         Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
         Me.LoginToolStripMenuItem.Text = "Login"
         '
+        'MiscalToolStripMenuItem
+        '
+        Me.MiscalToolStripMenuItem.Name = "MiscalToolStripMenuItem"
+        Me.MiscalToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
+        Me.MiscalToolStripMenuItem.Text = "Inputs"
+        '
         'IndexForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -144,4 +151,5 @@ Partial Class IndexForm
     Friend WithEvents CoursesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HallToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents LoginToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MiscalToolStripMenuItem As ToolStripMenuItem
 End Class

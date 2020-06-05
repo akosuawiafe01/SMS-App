@@ -22,8 +22,12 @@ Partial Class frmStudent
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmbMaritalStatus = New System.Windows.Forms.ComboBox()
+        Me.cmbGender = New System.Windows.Forms.ComboBox()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.dtpDOB = New System.Windows.Forms.DateTimePicker()
         Me.txtPostalAddress = New System.Windows.Forms.TextBox()
         Me.txtOtherName = New System.Windows.Forms.TextBox()
@@ -34,7 +38,6 @@ Partial Class frmStudent
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.txtGender = New System.Windows.Forms.TextBox()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -60,25 +63,30 @@ Partial Class frmStudent
         Me.Label13 = New System.Windows.Forms.Label()
         Me.studentImage = New System.Windows.Forms.PictureBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.cmbProgramme = New System.Windows.Forms.ComboBox()
+        Me.cmbStudentLevel = New System.Windows.Forms.ComboBox()
+        Me.cmbCollege = New System.Windows.Forms.ComboBox()
+        Me.cmbDepartment = New System.Windows.Forms.ComboBox()
+        Me.DepartmentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SMS_DataSet = New SMS_App.SMS_DataSet()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.txtStudentLevel = New System.Windows.Forms.TextBox()
-        Me.txtSave = New System.Windows.Forms.Button()
-        Me.txtCancel = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.DepartmentTableAdapter = New SMS_App.SMS_DataSetTableAdapters.DepartmentTableAdapter()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.studentImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
+        CType(Me.DepartmentBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SMS_DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -97,6 +105,9 @@ Partial Class frmStudent
         'GroupBox1
         '
         Me.GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.GroupBox1.Controls.Add(Me.cmbMaritalStatus)
+        Me.GroupBox1.Controls.Add(Me.cmbGender)
+        Me.GroupBox1.Controls.Add(Me.Label24)
         Me.GroupBox1.Controls.Add(Me.dtpDOB)
         Me.GroupBox1.Controls.Add(Me.txtPostalAddress)
         Me.GroupBox1.Controls.Add(Me.txtOtherName)
@@ -107,24 +118,50 @@ Partial Class frmStudent
         Me.GroupBox1.Controls.Add(Me.txtFirstName)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.TextBox13)
-        Me.GroupBox1.Controls.Add(Me.txtGender)
         Me.GroupBox1.Controls.Add(Me.txtEmail)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.txtLastName)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Location = New System.Drawing.Point(74, 103)
+        Me.GroupBox1.Location = New System.Drawing.Point(74, 86)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(442, 282)
+        Me.GroupBox1.Size = New System.Drawing.Size(442, 299)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Basic Information"
         '
+        'cmbMaritalStatus
+        '
+        Me.cmbMaritalStatus.FormattingEnabled = True
+        Me.cmbMaritalStatus.Items.AddRange(New Object() {"Male", "Female"})
+        Me.cmbMaritalStatus.Location = New System.Drawing.Point(152, 262)
+        Me.cmbMaritalStatus.Name = "cmbMaritalStatus"
+        Me.cmbMaritalStatus.Size = New System.Drawing.Size(144, 21)
+        Me.cmbMaritalStatus.TabIndex = 34
+        '
+        'cmbGender
+        '
+        Me.cmbGender.FormattingEnabled = True
+        Me.cmbGender.Items.AddRange(New Object() {"Single", "Married"})
+        Me.cmbGender.Location = New System.Drawing.Point(152, 157)
+        Me.cmbGender.Name = "cmbGender"
+        Me.cmbGender.Size = New System.Drawing.Size(144, 21)
+        Me.cmbGender.TabIndex = 33
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(32, 265)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(71, 13)
+        Me.Label24.TabIndex = 27
+        Me.Label24.Text = "Marital Status"
+        '
         'dtpDOB
         '
         Me.dtpDOB.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.dtpDOB.Location = New System.Drawing.Point(152, 144)
+        Me.dtpDOB.Location = New System.Drawing.Point(152, 128)
         Me.dtpDOB.Name = "dtpDOB"
         Me.dtpDOB.Size = New System.Drawing.Size(144, 20)
         Me.dtpDOB.TabIndex = 26
@@ -132,7 +169,7 @@ Partial Class frmStudent
         'txtPostalAddress
         '
         Me.txtPostalAddress.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtPostalAddress.Location = New System.Drawing.Point(152, 252)
+        Me.txtPostalAddress.Location = New System.Drawing.Point(152, 236)
         Me.txtPostalAddress.Name = "txtPostalAddress"
         Me.txtPostalAddress.Size = New System.Drawing.Size(144, 20)
         Me.txtPostalAddress.TabIndex = 24
@@ -140,7 +177,7 @@ Partial Class frmStudent
         'txtOtherName
         '
         Me.txtOtherName.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtOtherName.Location = New System.Drawing.Point(152, 109)
+        Me.txtOtherName.Location = New System.Drawing.Point(152, 93)
         Me.txtOtherName.Name = "txtOtherName"
         Me.txtOtherName.Size = New System.Drawing.Size(144, 20)
         Me.txtOtherName.TabIndex = 25
@@ -149,7 +186,7 @@ Partial Class frmStudent
         '
         Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(32, 116)
+        Me.Label11.Location = New System.Drawing.Point(32, 100)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(64, 13)
         Me.Label11.TabIndex = 19
@@ -158,7 +195,7 @@ Partial Class frmStudent
         'txtContact
         '
         Me.txtContact.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtContact.Location = New System.Drawing.Point(152, 199)
+        Me.txtContact.Location = New System.Drawing.Point(152, 183)
         Me.txtContact.Name = "txtContact"
         Me.txtContact.Size = New System.Drawing.Size(144, 20)
         Me.txtContact.TabIndex = 10
@@ -167,7 +204,7 @@ Partial Class frmStudent
         '
         Me.Label14.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(32, 252)
+        Me.Label14.Location = New System.Drawing.Point(32, 236)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(77, 13)
         Me.Label14.TabIndex = 19
@@ -177,7 +214,7 @@ Partial Class frmStudent
         '
         Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(32, 144)
+        Me.Label10.Location = New System.Drawing.Point(32, 128)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(30, 13)
         Me.Label10.TabIndex = 17
@@ -186,7 +223,7 @@ Partial Class frmStudent
         'txtFirstName
         '
         Me.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtFirstName.Location = New System.Drawing.Point(152, 57)
+        Me.txtFirstName.Location = New System.Drawing.Point(152, 41)
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(144, 20)
         Me.txtFirstName.TabIndex = 2
@@ -195,7 +232,7 @@ Partial Class frmStudent
         '
         Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(32, 90)
+        Me.Label9.Location = New System.Drawing.Point(32, 74)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(58, 13)
         Me.Label9.TabIndex = 16
@@ -204,23 +241,15 @@ Partial Class frmStudent
         'TextBox13
         '
         Me.TextBox13.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox13.Location = New System.Drawing.Point(334, 311)
+        Me.TextBox13.Location = New System.Drawing.Point(334, 320)
         Me.TextBox13.Name = "TextBox13"
         Me.TextBox13.Size = New System.Drawing.Size(144, 20)
         Me.TextBox13.TabIndex = 21
         '
-        'txtGender
-        '
-        Me.txtGender.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtGender.Location = New System.Drawing.Point(152, 173)
-        Me.txtGender.Name = "txtGender"
-        Me.txtGender.Size = New System.Drawing.Size(144, 20)
-        Me.txtGender.TabIndex = 9
-        '
         'txtEmail
         '
         Me.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtEmail.Location = New System.Drawing.Point(152, 225)
+        Me.txtEmail.Location = New System.Drawing.Point(152, 209)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(144, 20)
         Me.txtEmail.TabIndex = 5
@@ -229,7 +258,7 @@ Partial Class frmStudent
         '
         Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(32, 225)
+        Me.Label8.Location = New System.Drawing.Point(32, 209)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(32, 13)
         Me.Label8.TabIndex = 15
@@ -239,7 +268,7 @@ Partial Class frmStudent
         '
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(30, 64)
+        Me.Label2.Location = New System.Drawing.Point(30, 48)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(57, 13)
         Me.Label2.TabIndex = 4
@@ -249,7 +278,7 @@ Partial Class frmStudent
         '
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(32, 198)
+        Me.Label7.Location = New System.Drawing.Point(32, 182)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(44, 13)
         Me.Label7.TabIndex = 14
@@ -258,7 +287,7 @@ Partial Class frmStudent
         'txtLastName
         '
         Me.txtLastName.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtLastName.Location = New System.Drawing.Point(152, 83)
+        Me.txtLastName.Location = New System.Drawing.Point(152, 67)
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(144, 20)
         Me.txtLastName.TabIndex = 4
@@ -267,7 +296,7 @@ Partial Class frmStudent
         '
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(32, 173)
+        Me.Label6.Location = New System.Drawing.Point(32, 157)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(42, 13)
         Me.Label6.TabIndex = 13
@@ -416,7 +445,7 @@ Partial Class frmStudent
         Me.GroupBox3.Controls.Add(Me.txtCitizenship)
         Me.GroupBox3.Controls.Add(Me.txtHomeLang)
         Me.GroupBox3.Controls.Add(Me.Label4)
-        Me.GroupBox3.Location = New System.Drawing.Point(74, 414)
+        Me.GroupBox3.Location = New System.Drawing.Point(74, 406)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(442, 104)
         Me.GroupBox3.TabIndex = 3
@@ -456,7 +485,10 @@ Partial Class frmStudent
         'GroupBox4
         '
         Me.GroupBox4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.GroupBox4.Controls.Add(Me.txtStudentLevel)
+        Me.GroupBox4.Controls.Add(Me.cmbProgramme)
+        Me.GroupBox4.Controls.Add(Me.cmbStudentLevel)
+        Me.GroupBox4.Controls.Add(Me.cmbCollege)
+        Me.GroupBox4.Controls.Add(Me.cmbDepartment)
         Me.GroupBox4.Controls.Add(Me.Label23)
         Me.GroupBox4.Controls.Add(Me.TextBox1)
         Me.GroupBox4.Controls.Add(Me.Label17)
@@ -464,22 +496,78 @@ Partial Class frmStudent
         Me.GroupBox4.Controls.Add(Me.TextBox2)
         Me.GroupBox4.Controls.Add(Me.Label19)
         Me.GroupBox4.Controls.Add(Me.Label21)
-        Me.GroupBox4.Controls.Add(Me.TextBox3)
         Me.GroupBox4.Controls.Add(Me.Label22)
-        Me.GroupBox4.Controls.Add(Me.TextBox4)
-        Me.GroupBox4.Controls.Add(Me.TextBox5)
-        Me.GroupBox4.Location = New System.Drawing.Point(558, 301)
+        Me.GroupBox4.Location = New System.Drawing.Point(559, 294)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(443, 216)
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Other Information"
         '
+        'cmbProgramme
+        '
+        Me.cmbProgramme.FormattingEnabled = True
+        Me.cmbProgramme.Items.AddRange(New Object() {"Bachelor of Arts", "Bachelor of Fine Arts", "Bachelor of Law", "Bachelor of Science in Administration", "Bachelor of Science in Agriculture", "Doctor of Veterinary Medicine", "Bachelor of Science in Engineering", "Bachelor of Science in Family and Consumer Sciences", "Bachelor of Science in Natural Sciences", "Bachelor of Dental Surgery", "Bachelor of Medicine and Bachelor of Surgery", "B.Sc. Dietetics", "B.Sc. Medical Laboratory Sciences", "B.Sc. Occupational Therapy", "B.Sc. Physiotherapy", "B.Sc. Radiography"})
+        Me.cmbProgramme.Location = New System.Drawing.Point(194, 161)
+        Me.cmbProgramme.Name = "cmbProgramme"
+        Me.cmbProgramme.Size = New System.Drawing.Size(144, 21)
+        Me.cmbProgramme.TabIndex = 34
+        '
+        'cmbStudentLevel
+        '
+        Me.cmbStudentLevel.FormattingEnabled = True
+        Me.cmbStudentLevel.Items.AddRange(New Object() {"100", "200", "300", "400", "500 ", "600"})
+        Me.cmbStudentLevel.Location = New System.Drawing.Point(194, 188)
+        Me.cmbStudentLevel.Name = "cmbStudentLevel"
+        Me.cmbStudentLevel.Size = New System.Drawing.Size(144, 21)
+        Me.cmbStudentLevel.TabIndex = 33
+        '
+        'cmbCollege
+        '
+        Me.cmbCollege.FormattingEnabled = True
+        Me.cmbCollege.Items.AddRange(New Object() {"Health Sciences", "Basic and Applied Sciences", "Humanities", "Education"})
+        Me.cmbCollege.Location = New System.Drawing.Point(193, 110)
+        Me.cmbCollege.Name = "cmbCollege"
+        Me.cmbCollege.Size = New System.Drawing.Size(144, 21)
+        Me.cmbCollege.TabIndex = 32
+        '
+        'cmbDepartment
+        '
+        Me.cmbDepartment.DataSource = Me.DepartmentBindingSource
+        Me.cmbDepartment.DisplayMember = "deptName"
+        Me.cmbDepartment.FormattingEnabled = True
+        Me.cmbDepartment.Location = New System.Drawing.Point(193, 137)
+        Me.cmbDepartment.Name = "cmbDepartment"
+        Me.cmbDepartment.Size = New System.Drawing.Size(144, 21)
+        Me.cmbDepartment.TabIndex = 31
+        Me.cmbDepartment.ValueMember = "deptID"
+        '
+        'DepartmentBindingSource
+        '
+        Me.DepartmentBindingSource.DataMember = "Department"
+        Me.DepartmentBindingSource.DataSource = Me.SMS_DataSet
+        '
+        'SMS_DataSet
+        '
+        Me.SMS_DataSet.DataSetName = "SMS_DataSet"
+        Me.SMS_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Label23
+        '
+        Me.Label23.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(47, 196)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(33, 13)
+        Me.Label23.TabIndex = 29
+        Me.Label23.Text = "Level"
+        '
         'TextBox1
         '
         Me.TextBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox1.Location = New System.Drawing.Point(194, 76)
         Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox1.Size = New System.Drawing.Size(144, 20)
         Me.TextBox1.TabIndex = 18
         '
@@ -499,9 +587,9 @@ Partial Class frmStudent
         Me.Label18.AutoSize = True
         Me.Label18.Location = New System.Drawing.Point(45, 76)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(22, 13)
+        Me.Label18.Size = New System.Drawing.Size(62, 13)
         Me.Label18.TabIndex = 10
-        Me.Label18.Text = "Pin"
+        Me.Label18.Text = "Student Pin"
         '
         'TextBox2
         '
@@ -531,14 +619,6 @@ Partial Class frmStudent
         Me.Label21.TabIndex = 17
         Me.Label21.Text = "Student ID"
         '
-        'TextBox3
-        '
-        Me.TextBox3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox3.Location = New System.Drawing.Point(194, 164)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(144, 20)
-        Me.TextBox3.TabIndex = 23
-        '
         'Label22
         '
         Me.Label22.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -549,67 +629,37 @@ Partial Class frmStudent
         Me.Label22.TabIndex = 24
         Me.Label22.Text = "Department"
         '
-        'TextBox4
+        'btnSave
         '
-        Me.TextBox4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox4.Location = New System.Drawing.Point(194, 102)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(144, 20)
-        Me.TextBox4.TabIndex = 19
+        Me.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnSave.Location = New System.Drawing.Point(815, 549)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(74, 26)
+        Me.btnSave.TabIndex = 20
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
-        'TextBox5
+        'btnCancel
         '
-        Me.TextBox5.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox5.Location = New System.Drawing.Point(194, 136)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(144, 20)
-        Me.TextBox5.TabIndex = 20
+        Me.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnCancel.Location = New System.Drawing.Point(924, 549)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(78, 26)
+        Me.btnCancel.TabIndex = 21
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'Label23
+        'DepartmentTableAdapter
         '
-        Me.Label23.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(47, 196)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(33, 13)
-        Me.Label23.TabIndex = 29
-        Me.Label23.Text = "Level"
-        '
-        'txtStudentLevel
-        '
-        Me.txtStudentLevel.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtStudentLevel.Location = New System.Drawing.Point(194, 189)
-        Me.txtStudentLevel.Name = "txtStudentLevel"
-        Me.txtStudentLevel.Size = New System.Drawing.Size(144, 20)
-        Me.txtStudentLevel.TabIndex = 30
-        '
-        'txtSave
-        '
-        Me.txtSave.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtSave.Location = New System.Drawing.Point(815, 549)
-        Me.txtSave.Name = "txtSave"
-        Me.txtSave.Size = New System.Drawing.Size(74, 26)
-        Me.txtSave.TabIndex = 20
-        Me.txtSave.Text = "Save"
-        Me.txtSave.UseVisualStyleBackColor = True
-        '
-        'txtCancel
-        '
-        Me.txtCancel.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.txtCancel.Location = New System.Drawing.Point(924, 549)
-        Me.txtCancel.Name = "txtCancel"
-        Me.txtCancel.Size = New System.Drawing.Size(78, 26)
-        Me.txtCancel.TabIndex = 21
-        Me.txtCancel.Text = "Cancel"
-        Me.txtCancel.UseVisualStyleBackColor = True
+        Me.DepartmentTableAdapter.ClearBeforeFill = True
         '
         'frmStudent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1301, 606)
-        Me.Controls.Add(Me.txtCancel)
-        Me.Controls.Add(Me.txtSave)
+        Me.Controls.Add(Me.btnCancel)
+        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.studentImage)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.GroupBox4)
@@ -629,6 +679,8 @@ Partial Class frmStudent
         CType(Me.studentImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        CType(Me.DepartmentBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SMS_DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -638,7 +690,6 @@ Partial Class frmStudent
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents txtContact As TextBox
-    Friend WithEvents txtGender As TextBox
     Friend WithEvents txtStudID As TextBox
     Friend WithEvents txtHomeLang As TextBox
     Friend WithEvents txtEmail As TextBox
@@ -671,7 +722,6 @@ Partial Class frmStudent
     Friend WithEvents studentImage As PictureBox
     Friend WithEvents dtpDOB As DateTimePicker
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents txtStudentLevel As TextBox
     Friend WithEvents Label23 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label17 As Label
@@ -679,10 +729,17 @@ Partial Class frmStudent
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label19 As Label
     Friend WithEvents Label21 As Label
-    Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label22 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents txtSave As Button
-    Friend WithEvents txtCancel As Button
+    Friend WithEvents btnSave As Button
+    Friend WithEvents btnCancel As Button
+    Friend WithEvents Label24 As Label
+    Friend WithEvents cmbDepartment As ComboBox
+    Friend WithEvents SMS_DataSet As SMS_DataSet
+    Friend WithEvents DepartmentBindingSource As BindingSource
+    Friend WithEvents DepartmentTableAdapter As SMS_DataSetTableAdapters.DepartmentTableAdapter
+    Friend WithEvents cmbMaritalStatus As ComboBox
+    Friend WithEvents cmbGender As ComboBox
+    Friend WithEvents cmbProgramme As ComboBox
+    Friend WithEvents cmbStudentLevel As ComboBox
+    Friend WithEvents cmbCollege As ComboBox
 End Class

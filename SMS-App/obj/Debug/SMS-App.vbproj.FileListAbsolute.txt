@@ -16,3 +16,4 @@ C:\Users\Inspiron\Documents\Level 300\Visual Basic .NET\SMS-App\SMS-App\obj\Debu
 C:\Users\Inspiron\Documents\Level 300\Visual Basic .NET\SMS-App\SMS-App\obj\Debug\SMS_App.frmLogin.resources
 C:\Users\Inspiron\Documents\Level 300\Visual Basic .NET\SMS-App\SMS-App\obj\Debug\SMS_App.frmHall.resources
 C:\Users\Inspiron\Documents\Level 300\Visual Basic .NET\SMS-App\SMS-App\obj\Debug\SMS_App.rptCourses.resources
+C:\Users\Inspiron\Documents\Level 300\Visual Basic .NET\SMS-App\SMS-App\obj\Debug\SMS_App.Tests.resources

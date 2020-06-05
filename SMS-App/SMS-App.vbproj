@@ -149,6 +149,20 @@
     <Compile Include="rptStudent.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SMS_DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SMS_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SMS_DataSet.vb">
+      <DependentUpon>SMS_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tests.Designer.vb">
+      <DependentUpon>Tests.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tests.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmCourse.resx">
@@ -178,6 +192,9 @@
     <EmbeddedResource Include="rptCourses.resx">
       <DependentUpon>rptCourses.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tests.resx">
+      <DependentUpon>Tests.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
@@ -190,6 +207,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="SMS_DataSet.xsc">
+      <DependentUpon>SMS_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SMS_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SMS_DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SMS_DataSet.xss">
+      <DependentUpon>SMS_DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Neural Networks.png" />

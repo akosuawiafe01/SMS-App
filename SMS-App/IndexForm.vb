@@ -60,4 +60,14 @@
         frmLogin.MdiParent = Me
         frmLogin.Show()
     End Sub
+
+    Private Sub MiscalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MiscalToolStripMenuItem.Click
+        Dim frmTests As New Tests
+        frmTests.MdiParent = Me
+        frmTests.Show()
+    End Sub
+
+    Private Sub IndexForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
