@@ -55,11 +55,18 @@
         txtProgramme.Clear()
         TextBox1.Clear()
         TextBox2.Clear()
+        cmbCollege.Items.Clear()
+        cmbGender.Items.Clear()
+        cmbMaritalStatus.Items.Clear()
+        cmbProgramme.Items.Clear()
+        cmbStudentLevel.Items.Clear()
+
+
 
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Dim cancelOption = MessageBox.Show("Do you want to stop the registration process?", "Cancel Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+        Dim cancelOption = MessageBox.Show("Do you want to stop the registration process?", "Student Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
 
         If cancelOption = DialogResult.Yes Then
             frmLogin.Show()
@@ -69,7 +76,7 @@
 
 
         Else
-            MessageBox.Show("No")
+            Me.Close()
         End If
     End Sub
 
@@ -79,6 +86,8 @@
 
         'row = tabledataset.table.NewRow
         studentRow = studentDataSet.Student.NewRow
+
+
 
         'recieving data from text boxes
         studentRow.citizenship = txtCitizenship.Text

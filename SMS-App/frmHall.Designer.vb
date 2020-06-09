@@ -22,6 +22,7 @@ Partial Class frmHall
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -38,19 +39,24 @@ Partial Class frmHall
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmbAcaYear = New System.Windows.Forms.ComboBox()
+        Me.cmbRoomNo = New System.Windows.Forms.ComboBox()
+        Me.cmbHallName = New System.Windows.Forms.ComboBox()
+        Me.HallBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SMS_DataSet = New SMS_App.SMS_DataSet()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnHall = New System.Windows.Forms.Button()
+        Me.btnCancelHall = New System.Windows.Forms.Button()
         Me.btnHallUpdate = New System.Windows.Forms.Button()
         Me.btnHallSave = New System.Windows.Forms.Button()
+        Me.HallTableAdapter = New SMS_App.SMS_DataSetTableAdapters.HallTableAdapter()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        CType(Me.HallBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SMS_DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -59,7 +65,7 @@ Partial Class frmHall
         Me.Label1.Font = New System.Drawing.Font("Cambria", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(861, 106)
+        Me.Label1.Size = New System.Drawing.Size(903, 106)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "University of Ghana"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -97,9 +103,9 @@ Partial Class frmHall
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.ComboBox3)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.ComboBox2)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.ComboBox1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.cmbAcaYear)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.cmbRoomNo)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.cmbHallName)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label5)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label4)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label2)
@@ -217,29 +223,46 @@ Partial Class frmHall
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "Student ID"
         '
-        'ComboBox3
+        'cmbAcaYear
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(160, 156)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(150, 21)
-        Me.ComboBox3.TabIndex = 5
+        Me.cmbAcaYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAcaYear.FormattingEnabled = True
+        Me.cmbAcaYear.Items.AddRange(New Object() {"2016/2017", "2017/2018", "2018/2019", "2019/2020", "2020/2021", "2021/2022", "2022/2023", "2023/2024", "2024/2025"})
+        Me.cmbAcaYear.Location = New System.Drawing.Point(160, 156)
+        Me.cmbAcaYear.Name = "cmbAcaYear"
+        Me.cmbAcaYear.Size = New System.Drawing.Size(150, 21)
+        Me.cmbAcaYear.TabIndex = 5
         '
-        'ComboBox2
+        'cmbRoomNo
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(160, 102)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(150, 21)
-        Me.ComboBox2.TabIndex = 4
+        Me.cmbRoomNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbRoomNo.FormattingEnabled = True
+        Me.cmbRoomNo.Items.AddRange(New Object() {"101", "UG_102", "UG_103", "UG_104", "105"})
+        Me.cmbRoomNo.Location = New System.Drawing.Point(160, 102)
+        Me.cmbRoomNo.Name = "cmbRoomNo"
+        Me.cmbRoomNo.Size = New System.Drawing.Size(150, 21)
+        Me.cmbRoomNo.TabIndex = 4
         '
-        'ComboBox1
+        'cmbHallName
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(160, 44)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(150, 21)
-        Me.ComboBox1.TabIndex = 3
+        Me.cmbHallName.DataSource = Me.HallBindingSource
+        Me.cmbHallName.DisplayMember = "hallName"
+        Me.cmbHallName.FormattingEnabled = True
+        Me.cmbHallName.Location = New System.Drawing.Point(160, 44)
+        Me.cmbHallName.Name = "cmbHallName"
+        Me.cmbHallName.Size = New System.Drawing.Size(150, 21)
+        Me.cmbHallName.TabIndex = 3
+        Me.cmbHallName.ValueMember = "hall_ID"
+        '
+        'HallBindingSource
+        '
+        Me.HallBindingSource.DataMember = "Hall"
+        Me.HallBindingSource.DataSource = Me.SMS_DataSet
+        '
+        'SMS_DataSet
+        '
+        Me.SMS_DataSet.DataSetName = "SMS_DataSet"
+        Me.SMS_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label5
         '
@@ -268,14 +291,14 @@ Partial Class frmHall
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Hall"
         '
-        'btnHall
+        'btnCancelHall
         '
-        Me.btnHall.Location = New System.Drawing.Point(660, 438)
-        Me.btnHall.Name = "btnHall"
-        Me.btnHall.Size = New System.Drawing.Size(109, 23)
-        Me.btnHall.TabIndex = 5
-        Me.btnHall.Text = "Cancel"
-        Me.btnHall.UseVisualStyleBackColor = True
+        Me.btnCancelHall.Location = New System.Drawing.Point(660, 438)
+        Me.btnCancelHall.Name = "btnCancelHall"
+        Me.btnCancelHall.Size = New System.Drawing.Size(109, 23)
+        Me.btnCancelHall.TabIndex = 5
+        Me.btnCancelHall.Text = "Cancel"
+        Me.btnCancelHall.UseVisualStyleBackColor = True
         '
         'btnHallUpdate
         '
@@ -295,18 +318,23 @@ Partial Class frmHall
         Me.btnHallSave.Text = "Save"
         Me.btnHallSave.UseVisualStyleBackColor = True
         '
+        'HallTableAdapter
+        '
+        Me.HallTableAdapter.ClearBeforeFill = True
+        '
         'frmHall
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(861, 476)
+        Me.ClientSize = New System.Drawing.Size(903, 489)
         Me.Controls.Add(Me.btnHallSave)
         Me.Controls.Add(Me.btnHallUpdate)
-        Me.Controls.Add(Me.btnHall)
+        Me.Controls.Add(Me.btnCancelHall)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MinimizeBox = False
         Me.Name = "frmHall"
         Me.Text = "frmHall"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
@@ -315,6 +343,8 @@ Partial Class frmHall
         Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        CType(Me.HallBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SMS_DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -326,14 +356,14 @@ Partial Class frmHall
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmbAcaYear As ComboBox
+    Friend WithEvents cmbRoomNo As ComboBox
+    Friend WithEvents cmbHallName As ComboBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents btnHall As Button
+    Friend WithEvents btnCancelHall As Button
     Friend WithEvents btnHallUpdate As Button
     Friend WithEvents btnHallSave As Button
     Friend WithEvents txtHallCollege As TextBox
@@ -345,4 +375,7 @@ Partial Class frmHall
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Splitter1 As Splitter
+    Friend WithEvents SMS_DataSet As SMS_DataSet
+    Friend WithEvents HallBindingSource As BindingSource
+    Friend WithEvents HallTableAdapter As SMS_DataSetTableAdapters.HallTableAdapter
 End Class

@@ -506,6 +506,7 @@ Partial Class frmStudent
         '
         'cmbProgramme
         '
+        Me.cmbProgramme.DropDownWidth = 160
         Me.cmbProgramme.FormattingEnabled = True
         Me.cmbProgramme.Items.AddRange(New Object() {"Bachelor of Arts", "Bachelor of Fine Arts", "Bachelor of Law", "Bachelor of Science in Administration", "Bachelor of Science in Agriculture", "Doctor of Veterinary Medicine", "Bachelor of Science in Engineering", "Bachelor of Science in Family and Consumer Sciences", "Bachelor of Science in Natural Sciences", "Bachelor of Dental Surgery", "Bachelor of Medicine and Bachelor of Surgery", "B.Sc. Dietetics", "B.Sc. Medical Laboratory Sciences", "B.Sc. Occupational Therapy", "B.Sc. Physiotherapy", "B.Sc. Radiography"})
         Me.cmbProgramme.Location = New System.Drawing.Point(194, 161)

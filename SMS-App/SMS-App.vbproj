@@ -192,6 +192,9 @@
     <EmbeddedResource Include="rptCourses.resx">
       <DependentUpon>rptCourses.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptHall.resx">
+      <DependentUpon>rptHall.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tests.resx">
       <DependentUpon>Tests.vb</DependentUpon>
     </EmbeddedResource>
