@@ -82,41 +82,46 @@
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
-        Dim fname = txtFirstName.Text
+        Try
+            Dim fname = txtFirstName.Text
 
-        'row = tabledataset.table.NewRow
-        studentRow = studentDataSet.Student.NewRow
-
-
-
-        'recieving data from text boxes
-        studentRow.citizenship = txtCitizenship.Text
-        studentRow.college = cmbCollege.Text
-        studentRow.contact = txtContact.Text
-        studentRow.deptID = cmbDepartment.SelectedValue.ToString
-        studentRow.email = txtEmail.Text
-        studentRow.firstName = txtFirstName.Text
-        studentRow.lastName = txtLastName.Text
-        studentRow.otherName = txtOtherName.Text
-        studentRow.homeLanguage = txtHomeLang.Text
-        studentRow.postalAddress = txtPostalAddress.Text
-        studentRow.programme = cmbProgramme.Text
-        studentRow.academicLevel = cmbStudentLevel.Text
-        studentRow.studentID = TextBox1.Text
-        studentRow.studentPin = TextBox2.Text
-        studentRow.gender = cmbGender.Text
-        studentRow.maritalStatus = cmbMaritalStatus.Text
-        studentRow.DOB = dtpDOB.Value.Date
+            'row = tabledataset.table.NewRow
+            studentRow = studentDataSet.Student.NewRow
 
 
-        'updating the Student table in the database
-        studentDataSet.Student.AddStudentRow(studentRow)
-        studentAdapter.Update(studentDataSet.Student)
 
-        'saving data into database
-        MessageBox.Show(fname & ", your details have been saved successfully", "Registration Successful", MessageBoxButtons.OK)
+            'recieving data from text boxes
+            studentRow.citizenship = txtCitizenship.Text
+            studentRow.college = cmbCollege.Text
+            studentRow.contact = txtContact.Text
+            studentRow.deptID = cmbDepartment.SelectedValue.ToString
+            studentRow.email = txtEmail.Text
+            studentRow.firstName = txtFirstName.Text
+            studentRow.lastName = txtLastName.Text
+            studentRow.otherName = txtOtherName.Text
+            studentRow.homeLanguage = txtHomeLang.Text
+            studentRow.postalAddress = txtPostalAddress.Text
+            studentRow.programme = cmbProgramme.Text
+            studentRow.academicLevel = cmbStudentLevel.Text
+            studentRow.studentID = TextBox1.Text
+            studentRow.studentPin = TextBox2.Text
+            studentRow.gender = cmbGender.Text
+            studentRow.maritalStatus = cmbMaritalStatus.Text
+            studentRow.DOB = dtpDOB.Value.Date
 
-        clearAllFields()
+
+            'updating the Student table in the database
+            studentDataSet.Student.AddStudentRow(studentRow)
+            studentAdapter.Update(studentDataSet.Student)
+
+            'saving data into database
+            MessageBox.Show(fname & ", your details have been saved successfully", "Registration Successful", MessageBoxButtons.OK)
+
+            clearAllFields()
+
+        Catch ex As Exception
+            MessageBox.Show("Please Check your input values", ex.Message.ToString)
+        End Try
 
     End Sub
 End Class

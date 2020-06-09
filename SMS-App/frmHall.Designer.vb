@@ -67,7 +67,7 @@ Partial Class frmHall
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(903, 106)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "University of Ghana"
+        Me.Label1.Text = "WAN College"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label3

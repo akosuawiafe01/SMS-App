@@ -24,18 +24,18 @@ Partial Class frmTranscript
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtpTransDate = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtTransGPA = New System.Windows.Forms.TextBox()
         Me.txtTransHall = New System.Windows.Forms.TextBox()
         Me.txtTransProg = New System.Windows.Forms.TextBox()
         Me.txtTransDepartment = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtTransGPA = New System.Windows.Forms.TextBox()
         Me.txtTransLevel = New System.Windows.Forms.TextBox()
         Me.txtTransLN = New System.Windows.Forms.TextBox()
         Me.txtTransFN = New System.Windows.Forms.TextBox()
         Me.txtTransStudID = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -82,6 +82,22 @@ Partial Class frmTranscript
         Me.dtpTransDate.TabIndex = 1
         Me.dtpTransDate.TabStop = False
         Me.dtpTransDate.Text = "Student Details"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(509, 27)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(29, 13)
+        Me.Label9.TabIndex = 4
+        Me.Label9.Text = "GPA"
+        '
+        'txtTransGPA
+        '
+        Me.txtTransGPA.Location = New System.Drawing.Point(607, 30)
+        Me.txtTransGPA.Name = "txtTransGPA"
+        Me.txtTransGPA.Size = New System.Drawing.Size(129, 20)
+        Me.txtTransGPA.TabIndex = 9
         '
         'txtTransHall
         '
@@ -131,13 +147,6 @@ Partial Class frmTranscript
         Me.Label11.TabIndex = 12
         Me.Label11.Text = "Department"
         '
-        'txtTransGPA
-        '
-        Me.txtTransGPA.Location = New System.Drawing.Point(607, 30)
-        Me.txtTransGPA.Name = "txtTransGPA"
-        Me.txtTransGPA.Size = New System.Drawing.Size(129, 20)
-        Me.txtTransGPA.TabIndex = 9
-        '
         'txtTransLevel
         '
         Me.txtTransLevel.Location = New System.Drawing.Point(212, 131)
@@ -165,15 +174,6 @@ Partial Class frmTranscript
         Me.txtTransStudID.Name = "txtTransStudID"
         Me.txtTransStudID.Size = New System.Drawing.Size(129, 20)
         Me.txtTransStudID.TabIndex = 5
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(509, 27)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(29, 13)
-        Me.Label9.TabIndex = 4
-        Me.Label9.Text = "GPA"
         '
         'Label8
         '
