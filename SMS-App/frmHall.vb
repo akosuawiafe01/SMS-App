@@ -43,21 +43,15 @@
     Private Sub btnHallSave_Click(sender As Object, e As EventArgs) Handles btnHallSave.Click
 
 
-
         Try
-            If (cmbHallName.SelectedItem.Equals("6")) Then
-                studentAdapter.UpdateHallstats(cmbHallName.SelectedValue.ToString, "False", cmbRoomNo.SelectedItem, cmbAcaYear.SelectedItem, txtHallStudID.Text)
-                cmbRoomNo.Enabled = False
-                MessageBox.Show("Hall Saved Successfully", "Registration Success")
-                clearStudentFills()
-            Else
-                studentAdapter.UpdateHallstats(cmbHallName.SelectedItem.ToString, "True", cmbAcaYear.SelectedItem, cmbRoomNo.SelectedItem, txtHallStudID.Text)
-                MessageBox.Show("Hall Saved Successfully", "Registration Success")
-                clearStudentFills()
-            End If
+            enableCombos(True)
+            studentAdapter.UpdateHallstats(cmbHallName.SelectedValue.ToString, "true", cmbRoomNo.SelectedItem.ToString, cmbAcaYear.SelectedItem.ToString, txtHallStudID.Text)
+            MessageBox.Show("Details saved successfully", "Hall Registration Complete")
+            clearStudentFills()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+
         End Try
+
 
     End Sub
 
@@ -97,6 +91,14 @@
         txtHallFN.Enabled = status
         txtHallCollege.Enabled = status
         txtHallLevl.Enabled = status
+
+    End Sub
+
+
+    Private Sub enableCombos(status As Boolean)
+        cmbAcaYear.Enabled = status
+        cmbHallName.Enabled = status
+        cmbRoomNo.Enabled = status
     End Sub
 
     Private Sub txtHallStudID_Enter(sender As Object, e As EventArgs) Handles txtHallStudID.Enter
@@ -111,7 +113,11 @@
 
             If studentDataSet.Student.Rows.Count > 0 Then
 
+
                 studentRow = studentDataSet.Student.Rows(0)
+
+                enableCombos(False)
+                enableStudentDeats(False)
 
                 txtHallFN.Text = studentRow.firstName
                 txtHallLN.Text = studentRow.lastName

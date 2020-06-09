@@ -13,6 +13,7 @@
         'TODO: This line of code loads data into the 'SMS_DataSet.Course' table. You can move, or remove it, as needed.
         Me.CourseTableAdapter.Fill(Me.SMS_DataSet.Course)
 
+
     End Sub
 
     Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs)
@@ -23,7 +24,7 @@
 
     End Sub
 
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+    Private Sub Label3_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -50,9 +51,14 @@
 
 
         'recieving data from text boxes
-        transRow.courseCode = cmbCourseCode.SelectedValue.ToString
+        transRow.courseCode1 = cmbCourseCode.SelectedValue.ToString
+        transRow.courseCode2 = cmbCours2.SelectedValue.ToString
+        transRow.courseCode3 = cmbCours3.SelectedValue.ToString
         transRow.studID = txtStudeID.Text
         transRow.academicYear = cmbAcaYear.SelectedItem.ToString
+        transRow.semesterNo = cmbSemester.SelectedItem.ToString
+
+
         Try
             'transRow.semesterNo = cmbSemester.SelectedValue.ToString
         Catch ex As Exception
@@ -60,7 +66,7 @@
         End Try
 
 
-        'saving the Courses the database
+        'saving the Courses into the database
         transDataSet.Transcript.AddTranscriptRow(transRow)
         transAdapter.Update(transDataSet.Transcript)
 
@@ -77,11 +83,16 @@
             frmLogin.Show()
 
             Me.Close()
-
-
-
         Else
             Me.Close()
         End If
+    End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
+    End Sub
+
+    Private Sub txtStudeID_TextChanged(sender As Object, e As EventArgs) Handles txtStudeID.TextChanged
+
     End Sub
 End Class

@@ -3,7 +3,7 @@
 
     End Sub
 
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+    Private Sub Label5_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -27,7 +27,7 @@
 
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 
@@ -36,6 +36,32 @@
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub frmTranscript_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        enableFields(False)
+
+    End Sub
+
+    Private Sub clearFields()
+
+        txtTransDepartment.Clear()
+        txtTransDepartment.Clear()
+    End Sub
+
+    Private Sub enableFields(value As Boolean)
+        txtTransDepartment.Enabled = value
+        txtTransFN.Enabled = value
+        txtTransLN.Enabled = value
+        txtTransProg.Enabled = value
+        txtTransHall.Enabled = value
+        txtTransGPA.Enabled = value
+        txtTransLevel.Enabled = value
+
+    End Sub
+
+    Private Sub txtTransGPA_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 End Class

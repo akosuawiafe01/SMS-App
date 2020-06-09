@@ -51,9 +51,9 @@ Partial Public Class SMS_DataSet
     
     Private relationcontains As Global.System.Data.DataRelation
     
-    Private relationhas As Global.System.Data.DataRelation
-    
     Private relationstays_in As Global.System.Data.DataRelation
+    
+    Private relationhas As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -381,8 +381,8 @@ Partial Public Class SMS_DataSet
         Me.relationFK_Grade_Course = Me.Relations("FK_Grade_Course")
         Me.relationis_taught_by = Me.Relations("is taught by")
         Me.relationcontains = Me.Relations("contains")
-        Me.relationhas = Me.Relations("has")
         Me.relationstays_in = Me.Relations("stays in")
+        Me.relationhas = Me.Relations("has")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -419,10 +419,10 @@ Partial Public Class SMS_DataSet
         Me.Relations.Add(Me.relationis_taught_by)
         Me.relationcontains = New Global.System.Data.DataRelation("contains", New Global.System.Data.DataColumn() {Me.tableDepartment.deptIDColumn}, New Global.System.Data.DataColumn() {Me.tableStudent.deptIDColumn}, false)
         Me.Relations.Add(Me.relationcontains)
-        Me.relationhas = New Global.System.Data.DataRelation("has", New Global.System.Data.DataColumn() {Me.tableStudent.studentIDColumn}, New Global.System.Data.DataColumn() {Me.tableTranscript.studIDColumn}, false)
-        Me.Relations.Add(Me.relationhas)
         Me.relationstays_in = New Global.System.Data.DataRelation("stays in", New Global.System.Data.DataColumn() {Me.tableHall.hall_IDColumn}, New Global.System.Data.DataColumn() {Me.tableStudent.hall_IDColumn}, false)
         Me.Relations.Add(Me.relationstays_in)
+        Me.relationhas = New Global.System.Data.DataRelation("has", New Global.System.Data.DataColumn() {Me.tableStudent.studentIDColumn}, New Global.System.Data.DataColumn() {Me.tableTranscript.studIDColumn}, false)
+        Me.Relations.Add(Me.relationhas)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3078,9 +3078,19 @@ Partial Public Class SMS_DataSet
     Partial Public Class TranscriptDataTable
         Inherits Global.System.Data.TypedTableBase(Of TranscriptRow)
         
-        Private columncourseCode As Global.System.Data.DataColumn
-        
         Private columnstudID As Global.System.Data.DataColumn
+        
+        Private columncourseCode1 As Global.System.Data.DataColumn
+        
+        Private columngrade1 As Global.System.Data.DataColumn
+        
+        Private columncourseCode2 As Global.System.Data.DataColumn
+        
+        Private columngrade2 As Global.System.Data.DataColumn
+        
+        Private columncourseCode3 As Global.System.Data.DataColumn
+        
+        Private columngrade3 As Global.System.Data.DataColumn
         
         Private columnacademicYear As Global.System.Data.DataColumn
         
@@ -3088,9 +3098,11 @@ Partial Public Class SMS_DataSet
         
         Private columndate As Global.System.Data.DataColumn
         
-        Private columnscore As Global.System.Data.DataColumn
+        Private columnscore1 As Global.System.Data.DataColumn
         
-        Private columngrade As Global.System.Data.DataColumn
+        Private columnscore2 As Global.System.Data.DataColumn
+        
+        Private columnscore3 As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -3129,17 +3141,57 @@ Partial Public Class SMS_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property courseCodeColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property studIDColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncourseCode
+                Return Me.columnstudID
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property studIDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property courseCode1Column() As Global.System.Data.DataColumn
             Get
-                Return Me.columnstudID
+                Return Me.columncourseCode1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property grade1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columngrade1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property courseCode2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncourseCode2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property grade2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columngrade2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property courseCode3Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncourseCode3
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property grade3Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columngrade3
             End Get
         End Property
         
@@ -3169,17 +3221,25 @@ Partial Public Class SMS_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property scoreColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property score1Column() As Global.System.Data.DataColumn
             Get
-                Return Me.columnscore
+                Return Me.columnscore1
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property gradeColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property score2Column() As Global.System.Data.DataColumn
             Get
-                Return Me.columngrade
+                Return Me.columnscore2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property score3Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnscore3
             End Get
         End Property
         
@@ -3220,11 +3280,11 @@ Partial Public Class SMS_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddTranscriptRow(ByVal courseCode As String, ByVal parentStudentRowByhas As StudentRow, ByVal academicYear As String, ByVal semesterNo As String, ByVal _date As Date, ByVal score As String, ByVal grade As String) As TranscriptRow
+        Public Overloads Function AddTranscriptRow(ByVal parentStudentRowByhas As StudentRow, ByVal courseCode1 As String, ByVal grade1 As String, ByVal courseCode2 As String, ByVal grade2 As String, ByVal courseCode3 As String, ByVal grade3 As String, ByVal academicYear As String, ByVal semesterNo As String, ByVal _date As Date, ByVal score1 As String, ByVal score2 As String, ByVal score3 As String) As TranscriptRow
             Dim rowTranscriptRow As TranscriptRow = CType(Me.NewRow,TranscriptRow)
-            Dim columnValuesArray() As Object = New Object() {courseCode, Nothing, academicYear, semesterNo, _date, score, grade}
+            Dim columnValuesArray() As Object = New Object() {Nothing, courseCode1, grade1, courseCode2, grade2, courseCode3, grade3, academicYear, semesterNo, _date, score1, score2, score3}
             If (Not (parentStudentRowByhas) Is Nothing) Then
-                columnValuesArray(1) = parentStudentRowByhas(0)
+                columnValuesArray(0) = parentStudentRowByhas(0)
             End If
             rowTranscriptRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTranscriptRow)
@@ -3254,22 +3314,38 @@ Partial Public Class SMS_DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columncourseCode = MyBase.Columns("courseCode")
             Me.columnstudID = MyBase.Columns("studID")
+            Me.columncourseCode1 = MyBase.Columns("courseCode1")
+            Me.columngrade1 = MyBase.Columns("grade1")
+            Me.columncourseCode2 = MyBase.Columns("courseCode2")
+            Me.columngrade2 = MyBase.Columns("grade2")
+            Me.columncourseCode3 = MyBase.Columns("courseCode3")
+            Me.columngrade3 = MyBase.Columns("grade3")
             Me.columnacademicYear = MyBase.Columns("academicYear")
             Me.columnsemesterNo = MyBase.Columns("semesterNo")
             Me.columndate = MyBase.Columns("date")
-            Me.columnscore = MyBase.Columns("score")
-            Me.columngrade = MyBase.Columns("grade")
+            Me.columnscore1 = MyBase.Columns("score1")
+            Me.columnscore2 = MyBase.Columns("score2")
+            Me.columnscore3 = MyBase.Columns("score3")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columncourseCode = New Global.System.Data.DataColumn("courseCode", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncourseCode)
             Me.columnstudID = New Global.System.Data.DataColumn("studID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstudID)
+            Me.columncourseCode1 = New Global.System.Data.DataColumn("courseCode1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncourseCode1)
+            Me.columngrade1 = New Global.System.Data.DataColumn("grade1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columngrade1)
+            Me.columncourseCode2 = New Global.System.Data.DataColumn("courseCode2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncourseCode2)
+            Me.columngrade2 = New Global.System.Data.DataColumn("grade2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columngrade2)
+            Me.columncourseCode3 = New Global.System.Data.DataColumn("courseCode3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncourseCode3)
+            Me.columngrade3 = New Global.System.Data.DataColumn("grade3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columngrade3)
             Me.columnacademicYear = New Global.System.Data.DataColumn("academicYear", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnacademicYear)
             Me.columnsemesterNo = New Global.System.Data.DataColumn("semesterNo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -3279,21 +3355,27 @@ Partial Public Class SMS_DataSet
             Me.columndate.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columndate")
             Me.columndate.ExtendedProperties.Add("Generator_UserColumnName", "date")
             MyBase.Columns.Add(Me.columndate)
-            Me.columnscore = New Global.System.Data.DataColumn("score", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnscore)
-            Me.columngrade = New Global.System.Data.DataColumn("grade", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columngrade)
+            Me.columnscore1 = New Global.System.Data.DataColumn("score1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnscore1)
+            Me.columnscore2 = New Global.System.Data.DataColumn("score2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnscore2)
+            Me.columnscore3 = New Global.System.Data.DataColumn("score3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnscore3)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnstudID}, true))
-            Me.columncourseCode.AllowDBNull = false
-            Me.columncourseCode.MaxLength = 10
             Me.columnstudID.AllowDBNull = false
             Me.columnstudID.Unique = true
             Me.columnstudID.MaxLength = 8
-            Me.columnacademicYear.AllowDBNull = false
+            Me.columncourseCode1.MaxLength = 10
+            Me.columngrade1.MaxLength = 10
+            Me.columncourseCode2.MaxLength = 10
+            Me.columngrade2.MaxLength = 10
+            Me.columncourseCode3.MaxLength = 10
+            Me.columngrade3.MaxLength = 10
             Me.columnacademicYear.MaxLength = 10
             Me.columnsemesterNo.MaxLength = 10
-            Me.columnscore.MaxLength = 10
-            Me.columngrade.MaxLength = 10
+            Me.columnscore1.MaxLength = 10
+            Me.columnscore2.MaxLength = 10
+            Me.columnscore3.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4756,17 +4838,6 @@ Partial Public Class SMS_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property courseCode() As String
-            Get
-                Return CType(Me(Me.tableTranscript.courseCodeColumn),String)
-            End Get
-            Set
-                Me(Me.tableTranscript.courseCodeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property studID() As String
             Get
                 Return CType(Me(Me.tableTranscript.studIDColumn),String)
@@ -4778,9 +4849,103 @@ Partial Public Class SMS_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property courseCode1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTranscript.courseCode1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'courseCode1' in table 'Transcript' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTranscript.courseCode1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property grade1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTranscript.grade1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'grade1' in table 'Transcript' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTranscript.grade1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property courseCode2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTranscript.courseCode2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'courseCode2' in table 'Transcript' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTranscript.courseCode2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property grade2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTranscript.grade2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'grade2' in table 'Transcript' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTranscript.grade2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property courseCode3() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTranscript.courseCode3Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'courseCode3' in table 'Transcript' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTranscript.courseCode3Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property grade3() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTranscript.grade3Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'grade3' in table 'Transcript' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTranscript.grade3Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property academicYear() As String
             Get
-                Return CType(Me(Me.tableTranscript.academicYearColumn),String)
+                Try 
+                    Return CType(Me(Me.tableTranscript.academicYearColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'academicYear' in table 'Transcript' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableTranscript.academicYearColumn) = value
@@ -4819,31 +4984,46 @@ Partial Public Class SMS_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property score() As String
+        Public Property score1() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableTranscript.scoreColumn),String)
+                    Return CType(Me(Me.tableTranscript.score1Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'score' in table 'Transcript' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'score1' in table 'Transcript' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableTranscript.scoreColumn) = value
+                Me(Me.tableTranscript.score1Column) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property grade() As String
+        Public Property score2() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableTranscript.gradeColumn),String)
+                    Return CType(Me(Me.tableTranscript.score2Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'grade' in table 'Transcript' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'score2' in table 'Transcript' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableTranscript.gradeColumn) = value
+                Me(Me.tableTranscript.score2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property score3() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTranscript.score3Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'score3' in table 'Transcript' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTranscript.score3Column) = value
             End Set
         End Property
         
@@ -4857,6 +5037,90 @@ Partial Public Class SMS_DataSet
                 Me.SetParentRow(value, Me.Table.ParentRelations("has"))
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IscourseCode1Null() As Boolean
+            Return Me.IsNull(Me.tableTranscript.courseCode1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetcourseCode1Null()
+            Me(Me.tableTranscript.courseCode1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isgrade1Null() As Boolean
+            Return Me.IsNull(Me.tableTranscript.grade1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setgrade1Null()
+            Me(Me.tableTranscript.grade1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IscourseCode2Null() As Boolean
+            Return Me.IsNull(Me.tableTranscript.courseCode2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetcourseCode2Null()
+            Me(Me.tableTranscript.courseCode2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isgrade2Null() As Boolean
+            Return Me.IsNull(Me.tableTranscript.grade2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setgrade2Null()
+            Me(Me.tableTranscript.grade2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IscourseCode3Null() As Boolean
+            Return Me.IsNull(Me.tableTranscript.courseCode3Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetcourseCode3Null()
+            Me(Me.tableTranscript.courseCode3Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isgrade3Null() As Boolean
+            Return Me.IsNull(Me.tableTranscript.grade3Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setgrade3Null()
+            Me(Me.tableTranscript.grade3Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsacademicYearNull() As Boolean
+            Return Me.IsNull(Me.tableTranscript.academicYearColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetacademicYearNull()
+            Me(Me.tableTranscript.academicYearColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -4884,26 +5148,38 @@ Partial Public Class SMS_DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsscoreNull() As Boolean
-            Return Me.IsNull(Me.tableTranscript.scoreColumn)
+        Public Function Isscore1Null() As Boolean
+            Return Me.IsNull(Me.tableTranscript.score1Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetscoreNull()
-            Me(Me.tableTranscript.scoreColumn) = Global.System.Convert.DBNull
+        Public Sub Setscore1Null()
+            Me(Me.tableTranscript.score1Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsgradeNull() As Boolean
-            Return Me.IsNull(Me.tableTranscript.gradeColumn)
+        Public Function Isscore2Null() As Boolean
+            Return Me.IsNull(Me.tableTranscript.score2Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetgradeNull()
-            Me(Me.tableTranscript.gradeColumn) = Global.System.Convert.DBNull
+        Public Sub Setscore2Null()
+            Me(Me.tableTranscript.score2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isscore3Null() As Boolean
+            Return Me.IsNull(Me.tableTranscript.score3Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setscore3Null()
+            Me(Me.tableTranscript.score3Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -7761,13 +8037,13 @@ Namespace SMS_DataSetTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@params", Global.System.Data.SqlDbType.NChar, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "studentID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "UPDATE       Student"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                hall_ID = @hallID, residenceStatus = @re"& _ 
-                "sStats, roomNo = @rmNo, acaYear = @acaY"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (studentID = @params)"
+            Me._commandCollection(2).CommandText = "UPDATE       Student"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                hall_ID = @hallID, residenceStatus = @rs"& _ 
+                ", roomNo = @rm, acaYear = @ay"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (studentID = @params)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@hallID", Global.System.Data.SqlDbType.NChar, 5, Global.System.Data.ParameterDirection.Input, 0, 0, "hall_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@resStats", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "residenceStatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@rmNo", Global.System.Data.SqlDbType.NChar, 5, Global.System.Data.ParameterDirection.Input, 0, 0, "roomNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@acaY", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "acaYear", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@rs", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "residenceStatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@rm", Global.System.Data.SqlDbType.NChar, 5, Global.System.Data.ParameterDirection.Input, 0, 0, "roomNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ay", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "acaYear", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@params", Global.System.Data.SqlDbType.NChar, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "studentID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
@@ -8541,27 +8817,27 @@ Namespace SMS_DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UpdateHallstats(ByVal hallID As String, ByVal resStats As String, ByVal rmNo As String, ByVal acaY As String, ByVal params As String) As Integer
+        Public Overloads Overridable Function UpdateHallstats(ByVal hallID As String, ByVal rs As String, ByVal rm As String, ByVal ay As String, ByVal params As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
             If (hallID Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 command.Parameters(0).Value = CType(hallID,String)
             End If
-            If (resStats Is Nothing) Then
+            If (rs Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(resStats,String)
+                command.Parameters(1).Value = CType(rs,String)
             End If
-            If (rmNo Is Nothing) Then
+            If (rm Is Nothing) Then
                 command.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(2).Value = CType(rmNo,String)
+                command.Parameters(2).Value = CType(rm,String)
             End If
-            If (acaY Is Nothing) Then
+            If (ay Is Nothing) Then
                 command.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(3).Value = CType(acaY,String)
+                command.Parameters(3).Value = CType(ay,String)
             End If
             If (params Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("params")
@@ -8968,79 +9244,148 @@ Namespace SMS_DataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Transcript"
-            tableMapping.ColumnMappings.Add("courseCode", "courseCode")
             tableMapping.ColumnMappings.Add("studID", "studID")
+            tableMapping.ColumnMappings.Add("courseCode1", "courseCode1")
+            tableMapping.ColumnMappings.Add("grade1", "grade1")
+            tableMapping.ColumnMappings.Add("courseCode2", "courseCode2")
+            tableMapping.ColumnMappings.Add("grade2", "grade2")
+            tableMapping.ColumnMappings.Add("courseCode3", "courseCode3")
+            tableMapping.ColumnMappings.Add("grade3", "grade3")
             tableMapping.ColumnMappings.Add("academicYear", "academicYear")
             tableMapping.ColumnMappings.Add("semesterNo", "semesterNo")
             tableMapping.ColumnMappings.Add("date", "date")
-            tableMapping.ColumnMappings.Add("score", "score")
-            tableMapping.ColumnMappings.Add("grade", "grade")
+            tableMapping.ColumnMappings.Add("score1", "score1")
+            tableMapping.ColumnMappings.Add("score2", "score2")
+            tableMapping.ColumnMappings.Add("score3", "score3")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Transcript] WHERE (([courseCode] = @Original_courseCode) AND ([studI"& _ 
-                "D] = @Original_studID) AND ([academicYear] = @Original_academicYear) AND ((@IsNu"& _ 
-                "ll_semesterNo = 1 AND [semesterNo] IS NULL) OR ([semesterNo] = @Original_semeste"& _ 
-                "rNo)) AND ((@IsNull_date = 1 AND [date] IS NULL) OR ([date] = @Original_date)) A"& _ 
-                "ND ((@IsNull_score = 1 AND [score] IS NULL) OR ([score] = @Original_score)) AND "& _ 
-                "((@IsNull_grade = 1 AND [grade] IS NULL) OR ([grade] = @Original_grade)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Transcript] WHERE (([studID] = @Original_studID) AND ((@IsNull_cours"& _ 
+                "eCode1 = 1 AND [courseCode1] IS NULL) OR ([courseCode1] = @Original_courseCode1)"& _ 
+                ") AND ((@IsNull_grade1 = 1 AND [grade1] IS NULL) OR ([grade1] = @Original_grade1"& _ 
+                ")) AND ((@IsNull_courseCode2 = 1 AND [courseCode2] IS NULL) OR ([courseCode2] = "& _ 
+                "@Original_courseCode2)) AND ((@IsNull_grade2 = 1 AND [grade2] IS NULL) OR ([grad"& _ 
+                "e2] = @Original_grade2)) AND ((@IsNull_courseCode3 = 1 AND [courseCode3] IS NULL"& _ 
+                ") OR ([courseCode3] = @Original_courseCode3)) AND ((@IsNull_grade3 = 1 AND [grad"& _ 
+                "e3] IS NULL) OR ([grade3] = @Original_grade3)) AND ((@IsNull_academicYear = 1 AN"& _ 
+                "D [academicYear] IS NULL) OR ([academicYear] = @Original_academicYear)) AND ((@I"& _ 
+                "sNull_semesterNo = 1 AND [semesterNo] IS NULL) OR ([semesterNo] = @Original_seme"& _ 
+                "sterNo)) AND ((@IsNull_date = 1 AND [date] IS NULL) OR ([date] = @Original_date)"& _ 
+                ") AND ((@IsNull_score1 = 1 AND [score1] IS NULL) OR ([score1] = @Original_score1"& _ 
+                ")) AND ((@IsNull_score2 = 1 AND [score2] IS NULL) OR ([score2] = @Original_score"& _ 
+                "2)) AND ((@IsNull_score3 = 1 AND [score3] IS NULL) OR ([score3] = @Original_scor"& _ 
+                "e3)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_courseCode", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_studID", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "studID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_courseCode1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_courseCode1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_grade1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_grade1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_courseCode2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_courseCode2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_grade2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_grade2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_courseCode3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_courseCode3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_grade3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_grade3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_academicYear", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "academicYear", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_academicYear", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "academicYear", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_semesterNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "semesterNo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_semesterNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "semesterNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_score", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_score", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_grade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_grade", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_score1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_score1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_score2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_score2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_score3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_score3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Transcript] ([courseCode], [studID], [academicYear], [semesterNo], ["& _ 
-                "date], [score], [grade]) VALUES (@courseCode, @studID, @academicYear, @semesterN"& _ 
-                "o, @date, @score, @grade);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT courseCode, studID, academicYear, semesterNo,"& _ 
-                " date, score, grade FROM Transcript WHERE (studID = @studID)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Transcript] ([studID], [courseCode1], [grade1], [courseCode2], [grad"& _ 
+                "e2], [courseCode3], [grade3], [academicYear], [semesterNo], [date], [score1], [s"& _ 
+                "core2], [score3]) VALUES (@studID, @courseCode1, @grade1, @courseCode2, @grade2,"& _ 
+                " @courseCode3, @grade3, @academicYear, @semesterNo, @date, @score1, @score2, @sc"& _ 
+                "ore3);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT studID, courseCode1, grade1, courseCode2, grade2, courseCode3, gr"& _ 
+                "ade3, academicYear, semesterNo, date, score1, score2, score3 FROM Transcript WHE"& _ 
+                "RE (studID = @studID)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@courseCode", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@studID", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "studID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@courseCode1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@grade1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@courseCode2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@grade2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@courseCode3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@grade3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@academicYear", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "academicYear", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@semesterNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "semesterNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@score", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@grade", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@score1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@score2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@score3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [Transcript] SET [courseCode] = @courseCode, [studID] = @studID, [academic"& _ 
-                "Year] = @academicYear, [semesterNo] = @semesterNo, [date] = @date, [score] = @sc"& _ 
-                "ore, [grade] = @grade WHERE (([courseCode] = @Original_courseCode) AND ([studID]"& _ 
-                " = @Original_studID) AND ([academicYear] = @Original_academicYear) AND ((@IsNull"& _ 
-                "_semesterNo = 1 AND [semesterNo] IS NULL) OR ([semesterNo] = @Original_semesterN"& _ 
-                "o)) AND ((@IsNull_date = 1 AND [date] IS NULL) OR ([date] = @Original_date)) AND"& _ 
-                " ((@IsNull_score = 1 AND [score] IS NULL) OR ([score] = @Original_score)) AND (("& _ 
-                "@IsNull_grade = 1 AND [grade] IS NULL) OR ([grade] = @Original_grade)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT"& _ 
-                " courseCode, studID, academicYear, semesterNo, date, score, grade FROM Transcrip"& _ 
-                "t WHERE (studID = @studID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Transcript] SET [studID] = @studID, [courseCode1] = @courseCode1, [grade1"& _ 
+                "] = @grade1, [courseCode2] = @courseCode2, [grade2] = @grade2, [courseCode3] = @"& _ 
+                "courseCode3, [grade3] = @grade3, [academicYear] = @academicYear, [semesterNo] = "& _ 
+                "@semesterNo, [date] = @date, [score1] = @score1, [score2] = @score2, [score3] = "& _ 
+                "@score3 WHERE (([studID] = @Original_studID) AND ((@IsNull_courseCode1 = 1 AND ["& _ 
+                "courseCode1] IS NULL) OR ([courseCode1] = @Original_courseCode1)) AND ((@IsNull_"& _ 
+                "grade1 = 1 AND [grade1] IS NULL) OR ([grade1] = @Original_grade1)) AND ((@IsNull"& _ 
+                "_courseCode2 = 1 AND [courseCode2] IS NULL) OR ([courseCode2] = @Original_course"& _ 
+                "Code2)) AND ((@IsNull_grade2 = 1 AND [grade2] IS NULL) OR ([grade2] = @Original_"& _ 
+                "grade2)) AND ((@IsNull_courseCode3 = 1 AND [courseCode3] IS NULL) OR ([courseCod"& _ 
+                "e3] = @Original_courseCode3)) AND ((@IsNull_grade3 = 1 AND [grade3] IS NULL) OR "& _ 
+                "([grade3] = @Original_grade3)) AND ((@IsNull_academicYear = 1 AND [academicYear]"& _ 
+                " IS NULL) OR ([academicYear] = @Original_academicYear)) AND ((@IsNull_semesterNo"& _ 
+                " = 1 AND [semesterNo] IS NULL) OR ([semesterNo] = @Original_semesterNo)) AND ((@"& _ 
+                "IsNull_date = 1 AND [date] IS NULL) OR ([date] = @Original_date)) AND ((@IsNull_"& _ 
+                "score1 = 1 AND [score1] IS NULL) OR ([score1] = @Original_score1)) AND ((@IsNull"& _ 
+                "_score2 = 1 AND [score2] IS NULL) OR ([score2] = @Original_score2)) AND ((@IsNul"& _ 
+                "l_score3 = 1 AND [score3] IS NULL) OR ([score3] = @Original_score3)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT s"& _ 
+                "tudID, courseCode1, grade1, courseCode2, grade2, courseCode3, grade3, academicYe"& _ 
+                "ar, semesterNo, date, score1, score2, score3 FROM Transcript WHERE (studID = @st"& _ 
+                "udID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@courseCode", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@studID", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "studID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@courseCode1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@grade1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@courseCode2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@grade2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@courseCode3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@grade3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@academicYear", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "academicYear", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@semesterNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "semesterNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@score", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@grade", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_courseCode", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@score1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@score2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@score3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_studID", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "studID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_courseCode1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_courseCode1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_grade1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_grade1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_courseCode2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_courseCode2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_grade2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_grade2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_courseCode3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_courseCode3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "courseCode3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_grade3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_grade3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_academicYear", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "academicYear", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_academicYear", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "academicYear", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_semesterNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "semesterNo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_semesterNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "semesterNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_score", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_score", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_grade", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_grade", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "grade", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_score1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_score1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_score2", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score2", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_score2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_score3", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score3", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_score3", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "score3", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9116,49 +9461,95 @@ Namespace SMS_DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_courseCode As String, ByVal Original_studID As String, ByVal Original_academicYear As String, ByVal Original_semesterNo As String, ByVal Original_date As Global.System.Nullable(Of Date), ByVal Original_score As String, ByVal Original_grade As String) As Integer
-            If (Original_courseCode Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_courseCode")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_courseCode,String)
-            End If
+        Public Overloads Overridable Function Delete(ByVal Original_studID As String, ByVal Original_courseCode1 As String, ByVal Original_grade1 As String, ByVal Original_courseCode2 As String, ByVal Original_grade2 As String, ByVal Original_courseCode3 As String, ByVal Original_grade3 As String, ByVal Original_academicYear As String, ByVal Original_semesterNo As String, ByVal Original_date As Global.System.Nullable(Of Date), ByVal Original_score1 As String, ByVal Original_score2 As String, ByVal Original_score3 As String) As Integer
             If (Original_studID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_studID")
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_studID,String)
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_studID,String)
             End If
-            If (Original_academicYear Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_academicYear")
+            If (Original_courseCode1 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_academicYear,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_courseCode1,String)
             End If
-            If (Original_semesterNo Is Nothing) Then
+            If (Original_grade1 Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_semesterNo,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_grade1,String)
             End If
-            If (Original_date.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_date.Value,Date)
-            Else
+            If (Original_courseCode2 Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_courseCode2,String)
             End If
-            If (Original_score Is Nothing) Then
+            If (Original_grade2 Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_score,String)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_grade2,String)
             End If
-            If (Original_grade Is Nothing) Then
+            If (Original_courseCode3 Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_grade,String)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_courseCode3,String)
+            End If
+            If (Original_grade3 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_grade3,String)
+            End If
+            If (Original_academicYear Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_academicYear,String)
+            End If
+            If (Original_semesterNo Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_semesterNo,String)
+            End If
+            If (Original_date.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_date.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (Original_score1 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_score1,String)
+            End If
+            If (Original_score2 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_score2,String)
+            End If
+            If (Original_score3 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_score3,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -9179,41 +9570,71 @@ Namespace SMS_DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal courseCode As String, ByVal studID As String, ByVal academicYear As String, ByVal semesterNo As String, ByVal _date As Global.System.Nullable(Of Date), ByVal score As String, ByVal grade As String) As Integer
-            If (courseCode Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("courseCode")
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(courseCode,String)
-            End If
+        Public Overloads Overridable Function Insert(ByVal studID As String, ByVal courseCode1 As String, ByVal grade1 As String, ByVal courseCode2 As String, ByVal grade2 As String, ByVal courseCode3 As String, ByVal grade3 As String, ByVal academicYear As String, ByVal semesterNo As String, ByVal _date As Global.System.Nullable(Of Date), ByVal score1 As String, ByVal score2 As String, ByVal score3 As String) As Integer
             If (studID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("studID")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(studID,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(studID,String)
             End If
-            If (academicYear Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("academicYear")
+            If (courseCode1 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(academicYear,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(courseCode1,String)
             End If
-            If (semesterNo Is Nothing) Then
+            If (grade1 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(grade1,String)
+            End If
+            If (courseCode2 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(semesterNo,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(courseCode2,String)
             End If
-            If (_date.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(_date.Value,Date)
-            Else
+            If (grade2 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(grade2,String)
             End If
-            If (score Is Nothing) Then
+            If (courseCode3 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(score,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(courseCode3,String)
             End If
-            If (grade Is Nothing) Then
+            If (grade3 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(grade,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(grade3,String)
+            End If
+            If (academicYear Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(academicYear,String)
+            End If
+            If (semesterNo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(semesterNo,String)
+            End If
+            If (_date.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(_date.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (score1 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(score1,String)
+            End If
+            If (score2 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(score2,String)
+            End If
+            If (score3 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(score3,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -9234,84 +9655,186 @@ Namespace SMS_DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal courseCode As String, ByVal studID As String, ByVal academicYear As String, ByVal semesterNo As String, ByVal _date As Global.System.Nullable(Of Date), ByVal score As String, ByVal grade As String, ByVal Original_courseCode As String, ByVal Original_studID As String, ByVal Original_academicYear As String, ByVal Original_semesterNo As String, ByVal Original_date As Global.System.Nullable(Of Date), ByVal Original_score As String, ByVal Original_grade As String) As Integer
-            If (courseCode Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("courseCode")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(courseCode,String)
-            End If
+        Public Overloads Overridable Function Update( _
+                    ByVal studID As String,  _
+                    ByVal courseCode1 As String,  _
+                    ByVal grade1 As String,  _
+                    ByVal courseCode2 As String,  _
+                    ByVal grade2 As String,  _
+                    ByVal courseCode3 As String,  _
+                    ByVal grade3 As String,  _
+                    ByVal academicYear As String,  _
+                    ByVal semesterNo As String,  _
+                    ByVal _date As Global.System.Nullable(Of Date),  _
+                    ByVal score1 As String,  _
+                    ByVal score2 As String,  _
+                    ByVal score3 As String,  _
+                    ByVal Original_studID As String,  _
+                    ByVal Original_courseCode1 As String,  _
+                    ByVal Original_grade1 As String,  _
+                    ByVal Original_courseCode2 As String,  _
+                    ByVal Original_grade2 As String,  _
+                    ByVal Original_courseCode3 As String,  _
+                    ByVal Original_grade3 As String,  _
+                    ByVal Original_academicYear As String,  _
+                    ByVal Original_semesterNo As String,  _
+                    ByVal Original_date As Global.System.Nullable(Of Date),  _
+                    ByVal Original_score1 As String,  _
+                    ByVal Original_score2 As String,  _
+                    ByVal Original_score3 As String) As Integer
             If (studID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("studID")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(studID,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(studID,String)
             End If
-            If (academicYear Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("academicYear")
+            If (courseCode1 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(academicYear,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(courseCode1,String)
             End If
-            If (semesterNo Is Nothing) Then
+            If (grade1 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(grade1,String)
+            End If
+            If (courseCode2 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(semesterNo,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(courseCode2,String)
             End If
-            If (_date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(_date.Value,Date)
-            Else
+            If (grade2 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(grade2,String)
             End If
-            If (score Is Nothing) Then
+            If (courseCode3 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(score,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(courseCode3,String)
             End If
-            If (grade Is Nothing) Then
+            If (grade3 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(grade,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(grade3,String)
             End If
-            If (Original_courseCode Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_courseCode")
+            If (academicYear Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_courseCode,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(academicYear,String)
+            End If
+            If (semesterNo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(semesterNo,String)
+            End If
+            If (_date.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(_date.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (score1 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(score1,String)
+            End If
+            If (score2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(score2,String)
+            End If
+            If (score3 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(score3,String)
             End If
             If (Original_studID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_studID")
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_studID,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_studID,String)
             End If
-            If (Original_academicYear Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_academicYear")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_academicYear,String)
-            End If
-            If (Original_semesterNo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_semesterNo,String)
-            End If
-            If (Original_date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_date.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (Original_score Is Nothing) Then
+            If (Original_courseCode1 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_score,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_courseCode1,String)
             End If
-            If (Original_grade Is Nothing) Then
+            If (Original_grade1 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_grade,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_grade1,String)
+            End If
+            If (Original_courseCode2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_courseCode2,String)
+            End If
+            If (Original_grade2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_grade2,String)
+            End If
+            If (Original_courseCode3 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_courseCode3,String)
+            End If
+            If (Original_grade3 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_grade3,String)
+            End If
+            If (Original_academicYear Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_academicYear,String)
+            End If
+            If (Original_semesterNo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_semesterNo,String)
+            End If
+            If (Original_date.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_date.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            End If
+            If (Original_score1 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_score1,String)
+            End If
+            If (Original_score2 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_score2,String)
+            End If
+            If (Original_score3 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_score3,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -9332,8 +9855,33 @@ Namespace SMS_DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal courseCode As String, ByVal academicYear As String, ByVal semesterNo As String, ByVal _date As Global.System.Nullable(Of Date), ByVal score As String, ByVal grade As String, ByVal Original_courseCode As String, ByVal Original_studID As String, ByVal Original_academicYear As String, ByVal Original_semesterNo As String, ByVal Original_date As Global.System.Nullable(Of Date), ByVal Original_score As String, ByVal Original_grade As String) As Integer
-            Return Me.Update(courseCode, Original_studID, academicYear, semesterNo, _date, score, grade, Original_courseCode, Original_studID, Original_academicYear, Original_semesterNo, Original_date, Original_score, Original_grade)
+        Public Overloads Overridable Function Update( _
+                    ByVal courseCode1 As String,  _
+                    ByVal grade1 As String,  _
+                    ByVal courseCode2 As String,  _
+                    ByVal grade2 As String,  _
+                    ByVal courseCode3 As String,  _
+                    ByVal grade3 As String,  _
+                    ByVal academicYear As String,  _
+                    ByVal semesterNo As String,  _
+                    ByVal _date As Global.System.Nullable(Of Date),  _
+                    ByVal score1 As String,  _
+                    ByVal score2 As String,  _
+                    ByVal score3 As String,  _
+                    ByVal Original_studID As String,  _
+                    ByVal Original_courseCode1 As String,  _
+                    ByVal Original_grade1 As String,  _
+                    ByVal Original_courseCode2 As String,  _
+                    ByVal Original_grade2 As String,  _
+                    ByVal Original_courseCode3 As String,  _
+                    ByVal Original_grade3 As String,  _
+                    ByVal Original_academicYear As String,  _
+                    ByVal Original_semesterNo As String,  _
+                    ByVal Original_date As Global.System.Nullable(Of Date),  _
+                    ByVal Original_score1 As String,  _
+                    ByVal Original_score2 As String,  _
+                    ByVal Original_score3 As String) As Integer
+            Return Me.Update(Original_studID, courseCode1, grade1, courseCode2, grade2, courseCode3, grade3, academicYear, semesterNo, _date, score1, score2, score3, Original_studID, Original_courseCode1, Original_grade1, Original_courseCode2, Original_grade2, Original_courseCode3, Original_grade3, Original_academicYear, Original_semesterNo, Original_date, Original_score1, Original_score2, Original_score3)
         End Function
     End Class
     

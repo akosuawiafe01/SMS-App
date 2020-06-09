@@ -85,6 +85,12 @@
     <Compile Include="frmHall.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmLecturerLogin.Designer.vb">
+      <DependentUpon>frmLecturerLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLecturerLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHall.resx">
       <DependentUpon>frmHall.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLecturerLogin.resx">
+      <DependentUpon>frmLecturerLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>

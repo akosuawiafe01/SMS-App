@@ -49,10 +49,12 @@
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        Dim studentID, pin As String
+        Dim test, studentID, pin As String
 
         studentID = txtStudID.Text
         pin = txtPin.Text
+
+
 
         Try
             loginAdapter.getstudentLogs(studentID)
@@ -61,20 +63,27 @@
 
             If loginDataset.Student.Rows.Count > 0 Then
 
-                loginRow = loginDataset.Student.Rows(0)
+                    loginRow = loginDataset.Student.Rows(0)
 
-                MessageBox.Show("Login Successful")
-                IndexForm.Show()
+                    MessageBox.Show("Login Successful")
+                    IndexForm.Show()
 
-            ElseIf loginDataset.Student.Rows.Count = 0 Then
-                MessageBox.Show("Incorrect Student ID or pin kindly email UGCS for assistance!", "No Student Record")
+                ElseIf loginDataset.Student.Rows.Count = 0 Then
+                    MessageBox.Show("Incorrect Student ID or pin kindly email UGCS for assistance!", "No Student Record")
 
-            End If
+                End If
+
+
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
 
         clearAll()
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+        frmLecturerLogin.Show()
+
     End Sub
 End Class
