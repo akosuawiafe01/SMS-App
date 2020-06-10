@@ -57,7 +57,6 @@
             Dim strCon As String = "Data Source=.;Initial Catalog=SMS-Db;Integrated Security=True"
             Dim strSQL As String = "select studentID, studentPin from Student where studentID='" & studentID & "' and studentPin='" & pin & "' "
             Dim dataAdapter As New SqlClient.SqlDataAdapter(strSQL, strCon)
-            Dim sqlCmd As SqlClient.SqlCommand
             Dim dataTable As New DataTable
             dataAdapter.Fill(dataTable)
 
@@ -67,6 +66,7 @@
 
                 MessageBox.Show("Login Successful")
                 IndexForm.Show()
+                Me.Hide()
 
             ElseIf loginDataset.Student.Rows.Count = 0 Then
                 MessageBox.Show("Incorrect Student ID or pin kindly email UGCS for assistance!", "No Student Record")

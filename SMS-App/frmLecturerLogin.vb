@@ -23,9 +23,8 @@
 
         Try
             Dim strCon As String = "Data Source=.;Initial Catalog=SMS-Db;Integrated Security=True"
-            Dim strSQL As String = "select lectID, Password from Lecturer where lectID='" & lecturerID & "' and Password='" & password & "' "
+            Dim strSQL As String = "select  Password, lectName from Lecturer where lectID='" & lecturerID & "' and Password='" & password & "' "
             Dim dataAdapter As New SqlClient.SqlDataAdapter(strSQL, strCon)
-            Dim sqlCmd As SqlClient.SqlCommand
             Dim dataTable As New DataTable
             dataAdapter.Fill(dataTable)
 
@@ -35,7 +34,7 @@
 
 
 
-                MessageBox.Show("Login Successful")
+                MessageBox.Show("Welcome", "Login Successful")
                 frmLecturerMenu.Show()
                 Me.Hide()
 

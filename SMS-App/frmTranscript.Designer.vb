@@ -263,9 +263,9 @@ Partial Class frmTranscript
         '
         'btnViewResults
         '
-        Me.btnViewResults.Location = New System.Drawing.Point(834, 357)
+        Me.btnViewResults.Location = New System.Drawing.Point(834, 327)
         Me.btnViewResults.Name = "btnViewResults"
-        Me.btnViewResults.Size = New System.Drawing.Size(73, 20)
+        Me.btnViewResults.Size = New System.Drawing.Size(73, 50)
         Me.btnViewResults.TabIndex = 21
         Me.btnViewResults.Text = "View Results"
         Me.btnViewResults.UseVisualStyleBackColor = True

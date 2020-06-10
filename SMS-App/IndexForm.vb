@@ -35,10 +35,7 @@
     End Sub
 
     Private Sub HallToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HallToolStripMenuItem.Click
-        Dim rptHall As New rptHall
-        rptHall.MdiParent = Me
-        rptHall.StartPosition = FormStartPosition.CenterScreen
-        rptHall.Show()
+
     End Sub
 
     Private Sub LecturersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LecturersToolStripMenuItem.Click

@@ -79,6 +79,12 @@
     <Compile Include="frmCourse.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmGradeEntry.Designer.vb">
+      <DependentUpon>frmGradeEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGradeEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmHall.Designer.vb">
       <DependentUpon>frmHall.vb</DependentUpon>
     </Compile>
@@ -137,12 +143,6 @@
     <Compile Include="rptCourses.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="rptHall.Designer.vb">
-      <DependentUpon>rptHall.vb</DependentUpon>
-    </Compile>
-    <Compile Include="rptHall.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmLecturerMenu.Designer.vb">
       <DependentUpon>frmLecturerMenu.vb</DependentUpon>
     </Compile>
@@ -174,6 +174,9 @@
     <EmbeddedResource Include="frmCourse.resx">
       <DependentUpon>frmCourse.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGradeEntry.resx">
+      <DependentUpon>frmGradeEntry.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHall.resx">
       <DependentUpon>frmHall.vb</DependentUpon>
     </EmbeddedResource>
@@ -203,9 +206,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rptCourses.resx">
       <DependentUpon>rptCourses.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptHall.resx">
-      <DependentUpon>rptHall.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tests.resx">
       <DependentUpon>Tests.vb</DependentUpon>
