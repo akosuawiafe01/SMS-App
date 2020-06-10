@@ -42,7 +42,7 @@
     End Sub
 
     Private Sub LecturersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LecturersToolStripMenuItem.Click
-        Dim rptLecturers As New rptLecturers
+        Dim rptLecturers As New frmLecturerMenu
         rptLecturers.MdiParent = Me
         rptLecturers.StartPosition = FormStartPosition.CenterScreen
         rptLecturers.Show()

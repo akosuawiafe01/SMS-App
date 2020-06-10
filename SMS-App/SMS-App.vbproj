@@ -143,10 +143,10 @@
     <Compile Include="rptHall.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="rptLecturers.Designer.vb">
-      <DependentUpon>rptLecturers.vb</DependentUpon>
+    <Compile Include="frmLecturerMenu.Designer.vb">
+      <DependentUpon>frmLecturerMenu.vb</DependentUpon>
     </Compile>
-    <Compile Include="rptLecturers.vb">
+    <Compile Include="frmLecturerMenu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="rptStudent.Designer.vb">
@@ -179,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLecturerLogin.resx">
       <DependentUpon>frmLecturerLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLecturerMenu.resx">
+      <DependentUpon>frmLecturerMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>

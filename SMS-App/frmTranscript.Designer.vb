@@ -41,14 +41,14 @@ Partial Class frmTranscript
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.lblTest = New System.Windows.Forms.Label()
+        Me.dgvResults = New System.Windows.Forms.DataGridView()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.btnPrintTranscript = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.btnViewResults = New System.Windows.Forms.Button()
         Me.dtpTransDate.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvResults, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -217,8 +217,7 @@ Partial Class frmTranscript
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.DataGridView1)
-        Me.GroupBox3.Controls.Add(Me.lblTest)
+        Me.GroupBox3.Controls.Add(Me.dgvResults)
         Me.GroupBox3.Location = New System.Drawing.Point(42, 260)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(785, 231)
@@ -226,12 +225,13 @@ Partial Class frmTranscript
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Results"
         '
-        'lblTest
+        'dgvResults
         '
-        Me.lblTest.Location = New System.Drawing.Point(34, 47)
-        Me.lblTest.Name = "lblTest"
-        Me.lblTest.Size = New System.Drawing.Size(213, 63)
-        Me.lblTest.TabIndex = 0
+        Me.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvResults.Location = New System.Drawing.Point(104, 67)
+        Me.dgvResults.Name = "dgvResults"
+        Me.dgvResults.Size = New System.Drawing.Size(546, 128)
+        Me.dgvResults.TabIndex = 0
         '
         'DateTimePicker1
         '
@@ -258,19 +258,21 @@ Partial Class frmTranscript
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'btnViewResults
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(89, 36)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(479, 105)
-        Me.DataGridView1.TabIndex = 1
+        Me.btnViewResults.Location = New System.Drawing.Point(834, 357)
+        Me.btnViewResults.Name = "btnViewResults"
+        Me.btnViewResults.Size = New System.Drawing.Size(73, 20)
+        Me.btnViewResults.TabIndex = 21
+        Me.btnViewResults.Text = "View Results"
+        Me.btnViewResults.UseVisualStyleBackColor = True
         '
         'frmTranscript
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(928, 503)
+        Me.Controls.Add(Me.btnViewResults)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnPrintTranscript)
         Me.Controls.Add(Me.DateTimePicker1)
@@ -283,7 +285,7 @@ Partial Class frmTranscript
         Me.dtpTransDate.ResumeLayout(False)
         Me.dtpTransDate.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvResults, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -310,6 +312,6 @@ Partial Class frmTranscript
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents btnPrintTranscript As Button
     Friend WithEvents btnBack As Button
-    Friend WithEvents lblTest As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvResults As DataGridView
+    Friend WithEvents btnViewResults As Button
 End Class

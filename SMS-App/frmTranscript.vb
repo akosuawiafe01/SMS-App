@@ -8,6 +8,9 @@
     Dim transDeatsRow As SMS_DataSet.Transcript_DetailsRow
 
 
+
+
+
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
 
     End Sub
@@ -49,8 +52,9 @@
     End Sub
 
     Private Sub frmTranscript_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'SMS_DataSet.Transcript' table. You can move, or remove it, as needed.
-        'Me.TranscriptTableAdapter.Fill(Me.SMS_DataSet.Transcript)
+        'TODO: This line of code loads data into the 'SMS_DataSet.Transcript_ResultSlip' table. You can move, or remove it, as needed.
+        'Me.Transcript_ResultSlipTableAdapter.Fill(Me.SMS_DataSet.Transcript_ResultSlip)
+
         enableFields(False)
 
     End Sub
@@ -79,6 +83,7 @@
     Private Sub txtTransStudID_Leave(sender As Object, e As EventArgs) Handles txtTransStudID.Leave
         Try
             transcriptDeatsAdapter.FillBy(transcrptDeatsDataset.Transcript_Details, txtTransStudID.Text)
+            'resultsAdapter.FillBy(resultsDataSet.Transcript_ResultSlip, txtTransStudID.Text)
 
             If transcrptDeatsDataset.Transcript_Details.Rows.Count > 0 Then
 
@@ -93,7 +98,11 @@
                 txtTransProg.Text = transDeatsRow.programme
 
 
-                'lblTest.Update() = transDeatsRow.programme.ToString
+                'TODO: This line of code loads data into the 'SMS_DataSet.Transcript_ResultSlip' table. You can move, or remove it, as needed.
+
+
+
+
 
             ElseIf transcrptDeatsDataset.Transcript_Details.Rows.Count = 0 Then
                 MessageBox.Show("Incorrect Student ID please email UGCS for assistance!", "No Student Record")
@@ -112,6 +121,32 @@
         Catch ex As System.Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
+
+    End Sub
+
+    Private Sub FillByToolStripButton_Click_1(sender As Object, e As EventArgs)
+
+
+    End Sub
+
+    Private Sub btnViewResults_Click(sender As Object, e As EventArgs) Handles btnViewResults.Click
+        'Student Table data adapter
+        Dim resultsAdapter As SMS_DataSetTableAdapters.Transcript_ResultSlipTableAdapter = New SMS_DataSetTableAdapters.Transcript_ResultSlipTableAdapter()
+        'Student Table dataset
+        Dim resultsDataSet As SMS_DataSet = New SMS_DataSet()
+        'Variable for storing student data collected
+        Dim resultsRow As SMS_DataSet.Transcript_ResultSlipRow
+
+        Dim strCon As String = "Data Source=.;Initial Catalog=SMS-Db;Integrated Security=True"
+        Dim strSQL As String = "select courseCode, courseTitle, creditHours, score, grade  from Transcript_ResultSlip where studID='" & txtTransStudID.Text & "' "
+        Dim dataAdapter As New SqlClient.SqlDataAdapter(strSQL, strCon)
+        Dim table As New DataTable
+        dataAdapter.Fill(table)
+        dgvResults.DataSource = table
+
+    End Sub
+
+    Private Sub dtpTransDate_Enter(sender As Object, e As EventArgs) Handles dtpTransDate.Enter
 
     End Sub
 End Class
