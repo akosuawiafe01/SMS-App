@@ -24,7 +24,6 @@ Partial Class frmLogin
     Private Sub InitializeComponent()
         Me.lblSchName = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblRegisterStudent = New System.Windows.Forms.Label()
         Me.txtStudID = New System.Windows.Forms.TextBox()
         Me.txtPin = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -47,33 +46,19 @@ Partial Class frmLogin
         Me.lblSchName.Name = "lblSchName"
         Me.lblSchName.Size = New System.Drawing.Size(1202, 70)
         Me.lblSchName.TabIndex = 0
-        Me.lblSchName.Text = "University of Ghana"
+        Me.lblSchName.Text = "WAN Remedial College"
         Me.lblSchName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.NavajoWhite
         Me.Label1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label1.Location = New System.Drawing.Point(273, 61)
+        Me.Label1.Location = New System.Drawing.Point(454, 59)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(282, 23)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Student's Management System"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblRegisterStudent
-        '
-        Me.lblRegisterStudent.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblRegisterStudent.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.lblRegisterStudent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblRegisterStudent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRegisterStudent.ForeColor = System.Drawing.Color.Navy
-        Me.lblRegisterStudent.Location = New System.Drawing.Point(402, 471)
-        Me.lblRegisterStudent.Name = "lblRegisterStudent"
-        Me.lblRegisterStudent.Size = New System.Drawing.Size(800, 28)
-        Me.lblRegisterStudent.TabIndex = 3
-        Me.lblRegisterStudent.Text = "Register here"
-        Me.lblRegisterStudent.TextAlign = System.Drawing.ContentAlignment.BottomRight
         '
         'txtStudID
         '
@@ -98,7 +83,7 @@ Partial Class frmLogin
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtPin)
         Me.GroupBox1.Controls.Add(Me.txtStudID)
-        Me.GroupBox1.Location = New System.Drawing.Point(233, 143)
+        Me.GroupBox1.Location = New System.Drawing.Point(457, 166)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(447, 151)
         Me.GroupBox1.TabIndex = 6
@@ -137,22 +122,21 @@ Partial Class frmLogin
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.Label2.ForeColor = System.Drawing.Color.Navy
-        Me.Label2.Location = New System.Drawing.Point(658, 436)
+        Me.Label2.Location = New System.Drawing.Point(925, 425)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 13)
+        Me.Label2.Size = New System.Drawing.Size(141, 13)
         Me.Label2.TabIndex = 7
-        Me.Label2.Text = "New Student?"
+        Me.Label2.Text = "New Student? Register here"
         '
         'Label5
         '
-        Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.Label5.ForeColor = System.Drawing.Color.Navy
-        Me.Label5.Location = New System.Drawing.Point(658, 398)
+        Me.Label5.Location = New System.Drawing.Point(954, 97)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(46, 13)
+        Me.Label5.Size = New System.Drawing.Size(112, 22)
         Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Lecturer"
+        Me.Label5.Text = "Lecturer? Login here"
         '
         'frmLogin
         '
@@ -162,7 +146,6 @@ Partial Class frmLogin
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.lblRegisterStudent)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblSchName)
         Me.Name = "frmLogin"
@@ -177,7 +160,6 @@ Partial Class frmLogin
 
     Friend WithEvents lblSchName As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents lblRegisterStudent As Label
     Friend WithEvents txtStudID As TextBox
     Friend WithEvents txtPin As TextBox
     Friend WithEvents GroupBox1 As GroupBox

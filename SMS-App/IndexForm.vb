@@ -13,7 +13,7 @@
         gradeFrm.Show()
     End Sub
 
-    Private Sub StudentToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles StudentToolStripMenuItem1.Click
+    Private Sub StudentToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         Dim studentFrm As New frmStudent
         studentFrm.MdiParent = Me
         studentFrm.StartPosition = FormStartPosition.CenterScreen

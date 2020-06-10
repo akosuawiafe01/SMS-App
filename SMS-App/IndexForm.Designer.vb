@@ -24,7 +24,6 @@ Partial Class IndexForm
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.StudentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StudentToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CourseToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HallToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GradeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,27 +48,21 @@ Partial Class IndexForm
         '
         'StudentToolStripMenuItem
         '
-        Me.StudentToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StudentToolStripMenuItem1, Me.CourseToolStripMenuItem1, Me.HallToolStripMenuItem1})
+        Me.StudentToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CourseToolStripMenuItem1, Me.HallToolStripMenuItem1})
         Me.StudentToolStripMenuItem.Name = "StudentToolStripMenuItem"
         Me.StudentToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
         Me.StudentToolStripMenuItem.Text = "Registration"
         '
-        'StudentToolStripMenuItem1
-        '
-        Me.StudentToolStripMenuItem1.Name = "StudentToolStripMenuItem1"
-        Me.StudentToolStripMenuItem1.Size = New System.Drawing.Size(115, 22)
-        Me.StudentToolStripMenuItem1.Text = "Student"
-        '
         'CourseToolStripMenuItem1
         '
         Me.CourseToolStripMenuItem1.Name = "CourseToolStripMenuItem1"
-        Me.CourseToolStripMenuItem1.Size = New System.Drawing.Size(115, 22)
+        Me.CourseToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.CourseToolStripMenuItem1.Text = "Course"
         '
         'HallToolStripMenuItem1
         '
         Me.HallToolStripMenuItem1.Name = "HallToolStripMenuItem1"
-        Me.HallToolStripMenuItem1.Size = New System.Drawing.Size(115, 22)
+        Me.HallToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.HallToolStripMenuItem1.Text = "Hall"
         '
         'GradeToolStripMenuItem
@@ -143,7 +136,6 @@ Partial Class IndexForm
     Friend WithEvents StudentToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GradeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StudentToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents CourseToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents StudentsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HallToolStripMenuItem As ToolStripMenuItem

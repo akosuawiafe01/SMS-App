@@ -136,7 +136,7 @@ Partial Class frmGradeEntry
         Me.GroupBox2.Controls.Add(Me.dgvGradeEntry)
         Me.GroupBox2.Location = New System.Drawing.Point(367, 110)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(387, 265)
+        Me.GroupBox2.Size = New System.Drawing.Size(558, 265)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Grade Entry"
@@ -146,7 +146,7 @@ Partial Class frmGradeEntry
         Me.dgvGradeEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGradeEntry.Location = New System.Drawing.Point(22, 29)
         Me.dgvGradeEntry.Name = "dgvGradeEntry"
-        Me.dgvGradeEntry.Size = New System.Drawing.Size(345, 209)
+        Me.dgvGradeEntry.Size = New System.Drawing.Size(530, 209)
         Me.dgvGradeEntry.TabIndex = 0
         '
         'Button1
