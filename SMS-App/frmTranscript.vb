@@ -148,17 +148,6 @@
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim cancelOption = MessageBox.Show("Do you want to stop the registration process?", "Student Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-
-        If cancelOption = DialogResult.Yes Then
-            frmLogin.Show()
-
-            Me.Close()
-
-
-
-        Else
-            Me.Close()
-        End If
+        IndexForm.Show()
     End Sub
 End Class

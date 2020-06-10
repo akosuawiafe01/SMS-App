@@ -25,4 +25,14 @@
 
         txtStuID.Enabled = False
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim strCon As String = "Data Source=.;Initial Catalog=SMS-Db;Integrated Security=True"
+        Dim strSQL As String = "select courseCode, courseTitle, creditHours, score, grade  from Transcript_ResultSlip where studID='" & txtStuID.Text & "' "
+        Dim dataAdapter As New SqlClient.SqlDataAdapter(strSQL, strCon)
+        Dim table As New DataTable
+        dataAdapter.Fill(table)
+        dgvGradeEntry.DataSource = table
+
+    End Sub
 End Class
