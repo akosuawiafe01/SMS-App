@@ -15,27 +15,36 @@
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+
         Dim lecturerID, password As String
 
         lecturerID = txtlectId.Text
         password = txtPassword.Text
 
         Try
-            loginAdapter.getstudentLogs(lecturerID)
+            Dim strCon As String = "Data Source=.;Initial Catalog=SMS-Db;Integrated Security=True"
+            Dim strSQL As String = "select lectID, Password from Lecturer where lectID='" & lecturerID & "' and Password='" & password & "' "
+            Dim dataAdapter As New SqlClient.SqlDataAdapter(strSQL, strCon)
+            Dim sqlCmd As SqlClient.SqlCommand
+            Dim dataTable As New DataTable
+            dataAdapter.Fill(dataTable)
 
 
 
-            If loginDataset.Student.Rows.Count > 0 Then
+            If dataTable.Rows.Count > 0 Then
 
-                loginRow = loginDataset.Student.Rows(0)
+
 
                 MessageBox.Show("Login Successful")
-                IndexForm.Show()
+                frmLecturerMenu.Show()
+                Me.Hide()
 
             ElseIf loginDataset.Student.Rows.Count = 0 Then
-                MessageBox.Show("Incorrect Student ID or pin kindly email UGCS for assistance!", "No Student Record")
+                MessageBox.Show("Incorrect ID or pin kindly email UGCS for assistance!", "No Record Found")
 
             End If
+
+            clearAll()
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)

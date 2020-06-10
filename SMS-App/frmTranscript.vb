@@ -130,12 +130,7 @@
     End Sub
 
     Private Sub btnViewResults_Click(sender As Object, e As EventArgs) Handles btnViewResults.Click
-        'Student Table data adapter
-        Dim resultsAdapter As SMS_DataSetTableAdapters.Transcript_ResultSlipTableAdapter = New SMS_DataSetTableAdapters.Transcript_ResultSlipTableAdapter()
-        'Student Table dataset
-        Dim resultsDataSet As SMS_DataSet = New SMS_DataSet()
-        'Variable for storing student data collected
-        Dim resultsRow As SMS_DataSet.Transcript_ResultSlipRow
+
 
         Dim strCon As String = "Data Source=.;Initial Catalog=SMS-Db;Integrated Security=True"
         Dim strSQL As String = "select courseCode, courseTitle, creditHours, score, grade  from Transcript_ResultSlip where studID='" & txtTransStudID.Text & "' "
@@ -144,9 +139,26 @@
         dataAdapter.Fill(table)
         dgvResults.DataSource = table
 
+        txtTransStudID.Enabled = False
+
     End Sub
 
     Private Sub dtpTransDate_Enter(sender As Object, e As EventArgs) Handles dtpTransDate.Enter
 
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Dim cancelOption = MessageBox.Show("Do you want to stop the registration process?", "Student Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+
+        If cancelOption = DialogResult.Yes Then
+            frmLogin.Show()
+
+            Me.Close()
+
+
+
+        Else
+            Me.Close()
+        End If
     End Sub
 End Class

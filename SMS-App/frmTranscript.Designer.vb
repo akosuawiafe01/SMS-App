@@ -227,10 +227,13 @@ Partial Class frmTranscript
         '
         'dgvResults
         '
+        Me.dgvResults.AllowUserToAddRows = False
+        Me.dgvResults.AllowUserToDeleteRows = False
         Me.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvResults.Location = New System.Drawing.Point(104, 67)
         Me.dgvResults.Name = "dgvResults"
-        Me.dgvResults.Size = New System.Drawing.Size(546, 128)
+        Me.dgvResults.ReadOnly = True
+        Me.dgvResults.Size = New System.Drawing.Size(483, 117)
         Me.dgvResults.TabIndex = 0
         '
         'DateTimePicker1
