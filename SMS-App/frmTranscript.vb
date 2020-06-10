@@ -49,6 +49,8 @@
     End Sub
 
     Private Sub frmTranscript_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'SMS_DataSet.Transcript' table. You can move, or remove it, as needed.
+        'Me.TranscriptTableAdapter.Fill(Me.SMS_DataSet.Transcript)
         enableFields(False)
 
     End Sub
@@ -90,6 +92,9 @@
                 txtTransLN.Text = transDeatsRow.lastName
                 txtTransProg.Text = transDeatsRow.programme
 
+
+                'lblTest.Update() = transDeatsRow.programme.ToString
+
             ElseIf transcrptDeatsDataset.Transcript_Details.Rows.Count = 0 Then
                 MessageBox.Show("Incorrect Student ID please email UGCS for assistance!", "No Student Record")
                 txtTransStudID.Clear()
@@ -99,5 +104,14 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            'Me.TranscriptTableAdapter.FillBy(Me.SMS_DataSet.Transcript, ParmsToolStripTextBox.Text)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
     End Sub
 End Class

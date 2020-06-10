@@ -67,12 +67,12 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:SMS_App.SMS_DataSet.TranscriptDataTable">
+<member name="T:SMS_App.SMS_DataSet.Transcript_DetailsDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:SMS_App.SMS_DataSet.Transcript_DetailsDataTable">
+<member name="T:SMS_App.SMS_DataSet.TranscriptDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -112,12 +112,12 @@ Represents strongly named DataRow class.
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:SMS_App.SMS_DataSet.TranscriptRow">
+<member name="T:SMS_App.SMS_DataSet.Transcript_DetailsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:SMS_App.SMS_DataSet.Transcript_DetailsRow">
+<member name="T:SMS_App.SMS_DataSet.TranscriptRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -157,12 +157,12 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
-<member name="T:SMS_App.SMS_DataSet.TranscriptRowChangeEvent">
+<member name="T:SMS_App.SMS_DataSet.Transcript_DetailsRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:SMS_App.SMS_DataSet.Transcript_DetailsRowChangeEvent">
+<member name="T:SMS_App.SMS_DataSet.TranscriptRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
@@ -202,12 +202,12 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:SMS_App.SMS_DataSetTableAdapters.TranscriptTableAdapter">
+<member name="T:SMS_App.SMS_DataSetTableAdapters.Transcript_DetailsTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:SMS_App.SMS_DataSetTableAdapters.Transcript_DetailsTableAdapter">
+<member name="T:SMS_App.SMS_DataSetTableAdapters.TranscriptTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

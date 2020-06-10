@@ -4,7 +4,7 @@
     'Transcript Table data adapter
     Dim transAdapter As SMS_DataSetTableAdapters.TranscriptTableAdapter = New SMS_DataSetTableAdapters.TranscriptTableAdapter
     'Student Table dataset
-    Dim transDataSet As SMS_DataSet = New SMS_DataSet()
+    Dim transDataSet = New SMS_DataSet()
     'Variable for storing student data collected
     Dim transRow As SMS_DataSet.TranscriptRow
 
@@ -36,7 +36,7 @@
 
     End Sub
 
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+    Private Sub Label6_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -45,34 +45,32 @@
     End Sub
 
     Private Sub btnRegisterCourse_Click(sender As Object, e As EventArgs) Handles btnRegisterCourse.Click
-        'row = tabledataset.table.NewRow
-        transRow = transDataSet.Transcript.NewRow
-
-
-
-        'recieving data from text boxes
-        transRow.courseCode1 = cmbCourseCode.SelectedValue.ToString
-        transRow.courseCode2 = cmbCours2.SelectedValue.ToString
-        transRow.courseCode3 = cmbCours3.SelectedValue.ToString
-        transRow.studID = txtStudeID.Text
-        transRow.academicYear = cmbAcaYear.SelectedItem.ToString
-        transRow.semesterNo = cmbSemester.SelectedItem.ToString
-
 
         Try
-            'transRow.semesterNo = cmbSemester.SelectedValue.ToString
+
+
+            'row = tabledataset.table.NewRow
+            transRow = transDataSet.Transcript.NewRow
+
+            'recieving data from text boxes
+
+            transRow.studID = txtStudeID.Text
+            transRow.academicYear = cmbAcaYear.SelectedItem.ToString
+            transRow.semesterNo = cmbSemester.SelectedItem.ToString
+            transRow.courseCode = cmbCourseCode.SelectedValue.ToString
+
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show("Data fields cannot be left null", ex.Message)
         End Try
 
 
-        'saving the Courses into the database
-        transDataSet.Transcript.AddTranscriptRow(transRow)
-        transAdapter.Update(transDataSet.Transcript)
+            'saving the Courses into the database
+            transDataSet.Transcript.AddTranscriptRow(transRow)
+            transAdapter.Update(transDataSet.Transcript)
 
 
-        'Saving data into database
-        MessageBox.Show("Your courses have been saved successfully", "Registration Successful", MessageBoxButtons.OK)
+            'Saving data into database
+            MessageBox.Show("Your courses have been saved successfully", "Registration Successful", MessageBoxButtons.OK)
 
     End Sub
 
