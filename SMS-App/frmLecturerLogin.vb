@@ -43,13 +43,14 @@
 
             End If
 
-            clearAll()
+            'clearAll()
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+            clearAll()
         End Try
 
-        clearAll()
+        'clearAll()
 
     End Sub
 
@@ -64,5 +65,24 @@
     Public Sub clearAll()
         txtlectId.Clear()
         txtPassword.Clear()
+    End Sub
+
+    Private Sub btnCancelHall_Click(sender As Object, e As EventArgs) Handles btnCancelHall.Click
+        Dim cancelOption = MessageBox.Show("Do you want to go back?", "WAN College", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+
+        If cancelOption = DialogResult.Yes Then
+            frmLogin.Show()
+
+            txtlectId.Clear()
+            txtPassword.Clear()
+            frmLogin.txtPin.Clear()
+            frmLogin.txtStudID.Clear()
+            Me.Close()
+
+
+
+        Else
+            Me.Show()
+        End If
     End Sub
 End Class

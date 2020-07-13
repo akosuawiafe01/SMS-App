@@ -82,6 +82,21 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:SMS_App.SMS_DataSet.Student_ListDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSet.rptHallDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSet.rptCoursesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:SMS_App.SMS_DataSet.DepartmentRow">
 <summary>
 Represents strongly named DataRow class.
@@ -128,6 +143,21 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:SMS_App.SMS_DataSet.Transcript_ResultSlipRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSet.Student_ListRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSet.rptHallRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSet.rptCoursesRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -182,6 +212,21 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:SMS_App.SMS_DataSet.Student_ListRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSet.rptHallRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSet.rptCoursesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:SMS_App.SMS_DataSetTableAdapters.DepartmentTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
@@ -228,6 +273,21 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:SMS_App.SMS_DataSetTableAdapters.Transcript_ResultSlipTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSetTableAdapters.Student_ListTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSetTableAdapters.rptHallTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SMS_App.SMS_DataSetTableAdapters.rptCoursesTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

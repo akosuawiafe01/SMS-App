@@ -35,7 +35,7 @@
 
     End Sub
 
-    Private Sub Label2_Click_1(sender As Object, e As EventArgs) Handles Label2.Click
+    Private Sub Label2_Click_1(sender As Object, e As EventArgs) 
         frmStudent.Show()
         Me.Hide()
     End Sub
@@ -52,6 +52,7 @@
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim studentID, pin As String
 
+
         studentID = txtStudID.Text
         pin = txtPin.Text
         Try
@@ -65,7 +66,7 @@
 
 
 
-                MessageBox.Show("Login Successful")
+                'MessageBox.Show("Login Successful")
                 IndexForm.Show()
                 Me.Hide()
 
@@ -80,11 +81,39 @@
             MessageBox.Show(ex.Message)
         End Try
 
-        clearAll()
+        'clearAll()
     End Sub
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
         frmLecturerLogin.Show()
+
+    End Sub
+
+    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub frmLogin_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        'Me.Close()
+    End Sub
+
+    Private Sub frmLogin_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
+        Me.Close()
+        frmCourse.Close()
+        frmEditStudent.Close()
+        frmGradeEntry.Close()
+        frmHall.Close()
+        frmLecturerLogin.Close()
+        frmLecturerMenu.Close()
+        rptCourses.Close()
+        rptHall.Close()
+        rptStudent.Close()
+        frmTranscript.Close()
+        frmStudent.Close()
+
+        For Each form As Form In My.Application.OpenForms
+            form.Close()
+        Next
 
     End Sub
 End Class

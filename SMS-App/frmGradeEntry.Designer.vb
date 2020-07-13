@@ -32,9 +32,11 @@ Partial Class frmGradeEntry
         Me.txtLN = New System.Windows.Forms.TextBox()
         Me.txtFN = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnStudentSearch = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvGradeEntry = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvGradeEntry, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,6 +118,7 @@ Partial Class frmGradeEntry
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnStudentSearch)
         Me.GroupBox1.Controls.Add(Me.txtStuID)
         Me.GroupBox1.Controls.Add(Me.txtFN)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -130,6 +133,15 @@ Partial Class frmGradeEntry
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Student Details"
+        '
+        'btnStudentSearch
+        '
+        Me.btnStudentSearch.Location = New System.Drawing.Point(145, 174)
+        Me.btnStudentSearch.Name = "btnStudentSearch"
+        Me.btnStudentSearch.Size = New System.Drawing.Size(134, 23)
+        Me.btnStudentSearch.TabIndex = 9
+        Me.btnStudentSearch.Text = "Search Student"
+        Me.btnStudentSearch.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -153,21 +165,33 @@ Partial Class frmGradeEntry
         '
         Me.Button1.Location = New System.Drawing.Point(367, 402)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(107, 48)
+        Me.Button1.Size = New System.Drawing.Size(107, 24)
         Me.Button1.TabIndex = 11
         Me.Button1.Text = "Save"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(505, 402)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(89, 23)
+        Me.Button2.TabIndex = 12
+        Me.Button2.Text = "Back"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'frmGradeEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(937, 450)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmGradeEntry"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmGradeEntry"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -190,4 +214,6 @@ Partial Class frmGradeEntry
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents dgvGradeEntry As DataGridView
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnStudentSearch As Button
+    Friend WithEvents Button2 As Button
 End Class

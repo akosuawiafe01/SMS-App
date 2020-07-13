@@ -43,7 +43,6 @@ Partial Class frmTranscript
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dgvResults = New System.Windows.Forms.DataGridView()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.btnPrintTranscript = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnViewResults = New System.Windows.Forms.Button()
         Me.dtpTransDate.SuspendLayout()
@@ -230,10 +229,10 @@ Partial Class frmTranscript
         Me.dgvResults.AllowUserToAddRows = False
         Me.dgvResults.AllowUserToDeleteRows = False
         Me.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvResults.Location = New System.Drawing.Point(104, 67)
+        Me.dgvResults.Location = New System.Drawing.Point(26, 67)
         Me.dgvResults.Name = "dgvResults"
         Me.dgvResults.ReadOnly = True
-        Me.dgvResults.Size = New System.Drawing.Size(483, 117)
+        Me.dgvResults.Size = New System.Drawing.Size(742, 117)
         Me.dgvResults.TabIndex = 0
         '
         'DateTimePicker1
@@ -242,15 +241,6 @@ Partial Class frmTranscript
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(182, 20)
         Me.DateTimePicker1.TabIndex = 18
-        '
-        'btnPrintTranscript
-        '
-        Me.btnPrintTranscript.Location = New System.Drawing.Point(833, 391)
-        Me.btnPrintTranscript.Name = "btnPrintTranscript"
-        Me.btnPrintTranscript.Size = New System.Drawing.Size(75, 23)
-        Me.btnPrintTranscript.TabIndex = 19
-        Me.btnPrintTranscript.Text = "Print"
-        Me.btnPrintTranscript.UseVisualStyleBackColor = True
         '
         'btnBack
         '
@@ -275,9 +265,9 @@ Partial Class frmTranscript
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(928, 503)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnViewResults)
         Me.Controls.Add(Me.btnBack)
-        Me.Controls.Add(Me.btnPrintTranscript)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.dtpTransDate)
@@ -313,7 +303,6 @@ Partial Class frmTranscript
     Friend WithEvents txtTransProg As TextBox
     Friend WithEvents txtTransDepartment As TextBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents btnPrintTranscript As Button
     Friend WithEvents btnBack As Button
     Friend WithEvents dgvResults As DataGridView
     Friend WithEvents btnViewResults As Button

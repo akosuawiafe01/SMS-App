@@ -54,33 +54,7 @@
     Private Sub frmTranscript_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'SMS_DataSet.Transcript_ResultSlip' table. You can move, or remove it, as needed.
         'Me.Transcript_ResultSlipTableAdapter.Fill(Me.SMS_DataSet.Transcript_ResultSlip)
-
-        enableFields(False)
-
-    End Sub
-
-    Private Sub clearFields()
-
-        txtTransDepartment.Clear()
-        txtTransDepartment.Clear()
-    End Sub
-
-    Private Sub enableFields(value As Boolean)
-        txtTransDepartment.Enabled = value
-        txtTransFN.Enabled = value
-        txtTransLN.Enabled = value
-        txtTransProg.Enabled = value
-        txtTransHall.Enabled = value
-        txtTransGPA.Enabled = value
-        txtTransLevel.Enabled = value
-
-    End Sub
-
-    Private Sub txtTransGPA_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub txtTransStudID_Leave(sender As Object, e As EventArgs) Handles txtTransStudID.Leave
+        txtTransStudID.Text = frmLogin.txtStudID.Text
         Try
             transcriptDeatsAdapter.FillBy(transcrptDeatsDataset.Transcript_Details, txtTransStudID.Text)
             'resultsAdapter.FillBy(resultsDataSet.Transcript_ResultSlip, txtTransStudID.Text)
@@ -113,6 +87,25 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        enableFields(False)
+
+    End Sub
+
+    Private Sub clearFields()
+
+        txtTransDepartment.Clear()
+        txtTransDepartment.Clear()
+    End Sub
+
+    Private Sub enableFields(value As Boolean)
+        txtTransDepartment.Enabled = value
+        txtTransFN.Enabled = value
+        txtTransLN.Enabled = value
+        txtTransProg.Enabled = value
+        txtTransHall.Enabled = value
+        txtTransGPA.Enabled = value
+        txtTransLevel.Enabled = value
+
     End Sub
 
     Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs)
@@ -121,11 +114,6 @@
         Catch ex As System.Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
-
-    End Sub
-
-    Private Sub FillByToolStripButton_Click_1(sender As Object, e As EventArgs)
-
 
     End Sub
 
@@ -148,6 +136,16 @@
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        IndexForm.Show()
+        Dim cancelOption = MessageBox.Show("Do you want to stop the registration process?", "Student Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+
+        If cancelOption = DialogResult.Yes Then
+            IndexForm.Show()
+            Me.Close()
+
+        Else
+            Me.Show()
+        End If
     End Sub
+
+
 End Class

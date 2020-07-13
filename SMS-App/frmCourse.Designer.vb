@@ -27,6 +27,7 @@ Partial Class frmCourse
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.txtStudeID = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbAcaYear = New System.Windows.Forms.ComboBox()
@@ -41,7 +42,6 @@ Partial Class frmCourse
         Me.btnRegisterCourse = New System.Windows.Forms.Button()
         Me.btnCancelCourse = New System.Windows.Forms.Button()
         Me.CourseTableAdapter = New SMS_App.SMS_DataSetTableAdapters.CourseTableAdapter()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.CourseBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,8 +94,18 @@ Partial Class frmCourse
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Course Registration"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(864, 91)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(51, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Semester"
+        '
         'txtStudeID
         '
+        Me.txtStudeID.Enabled = False
         Me.txtStudeID.Location = New System.Drawing.Point(982, 19)
         Me.txtStudeID.Name = "txtStudeID"
         Me.txtStudeID.Size = New System.Drawing.Size(159, 20)
@@ -133,7 +143,7 @@ Partial Class frmCourse
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(874, 16)
+        Me.Label5.Location = New System.Drawing.Point(864, 16)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 13)
         Me.Label5.TabIndex = 17
@@ -220,20 +230,12 @@ Partial Class frmCourse
         '
         Me.CourseTableAdapter.ClearBeforeFill = True
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(864, 91)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Semester"
-        '
         'frmCourse
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1261, 540)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnCancelCourse)
         Me.Controls.Add(Me.btnRegisterCourse)
         Me.Controls.Add(Me.GroupBox1)

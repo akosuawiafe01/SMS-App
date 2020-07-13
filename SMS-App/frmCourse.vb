@@ -13,6 +13,9 @@
         'TODO: This line of code loads data into the 'SMS_DataSet.Course' table. You can move, or remove it, as needed.
         Me.CourseTableAdapter.Fill(Me.SMS_DataSet.Course)
 
+        txtStudeID.Text = frmLogin.txtStudID.Text
+
+        'MessageBox.Show(frmLogin.txtStudID.Text)
 
     End Sub
 
@@ -54,7 +57,7 @@
 
             'recieving data from text boxes
 
-            transRow.studID = txtStudeID.Text
+            transRow.studID = frmLogin.txtStudID.Text
             transRow.academicYear = cmbAcaYear.SelectedItem.ToString
             transRow.semesterNo = cmbSemester.SelectedItem.ToString
             transRow.courseCode = cmbCourseCode.SelectedValue.ToString
@@ -78,11 +81,11 @@
         Dim cancelOption = MessageBox.Show("Do you want to stop the registration process?", "Hall Regstration", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
 
         If cancelOption = DialogResult.Yes Then
-            frmLogin.Show()
+            IndexForm.Show()
 
             Me.Close()
         Else
-            Me.Close()
+            Me.Show()
         End If
     End Sub
 

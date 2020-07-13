@@ -327,6 +327,7 @@ Partial Class frmHall
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(903, 489)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnHallSave)
         Me.Controls.Add(Me.btnHallUpdate)
         Me.Controls.Add(Me.btnCancelHall)
@@ -336,6 +337,7 @@ Partial Class frmHall
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MinimizeBox = False
         Me.Name = "frmHall"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmHall"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()

@@ -30,7 +30,6 @@ Partial Class frmLogin
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -117,17 +116,6 @@ Partial Class frmLogin
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Student Id"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Label2.ForeColor = System.Drawing.Color.Navy
-        Me.Label2.Location = New System.Drawing.Point(925, 425)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 13)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "New Student? Register here"
-        '
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.SystemColors.ActiveBorder
@@ -144,7 +132,6 @@ Partial Class frmLogin
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1202, 499)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblSchName)
@@ -154,7 +141,6 @@ Partial Class frmLogin
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -164,7 +150,6 @@ Partial Class frmLogin
     Friend WithEvents txtPin As TextBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnLogin As Button
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
